@@ -342,6 +342,21 @@ body:has(.login-shell){padding:0;background:linear-gradient(145deg,#e8f0eb 0%,#f
  .digital-header-meta .version-badge{font-size:7px}
 }
 
+
+/* v2.0 üst alan ve sade sosyal medya bağlantıları */
+.institution-logo img{width:68px;height:68px}
+.digital-social{justify-content:flex-end;align-items:center;gap:9px;min-height:0;margin:0 2px 16px;padding:0}
+.digital-social-label{color:#84948a;font-size:9px;font-weight:800;letter-spacing:1px}
+.digital-social .social-icons{gap:7px}
+.digital-social .social-icons a{width:30px;height:30px;font-size:13px;background:#edf4ef;color:#174c3a;border:1px solid #dce9df;box-shadow:none}
+.digital-social .social-icons a.ins,.digital-social .social-icons a.fac,.digital-social .social-icons a.twi{color:#174c3a}
+.digital-social .social-icons a:hover{background:#174c3a;color:#fff;transform:translateY(-1px)}
+@media(max-width:600px){
+ .institution-logo img{width:49px;height:49px}
+ .digital-social{margin:0 2px 13px}
+ .digital-social .social-icons a{width:29px;height:29px}
+}
+
 </style>
             </div>
     </div>
@@ -367,20 +382,16 @@ body:has(.login-shell){padding:0;background:linear-gradient(145deg,#e8f0eb 0%,#f
         <div class="digital-brand-name">KOOP-İŞ <span>DİJİTAL</span></div>
         <div class="digital-brand-subtitle">GSB MAAŞ VE HAKEDİŞ HESAPLAMA</div>
       </div>
-      <div class="digital-header-meta"><span>10 NOLU İŞKOLU</span><span class="version-badge">v1.8 · 23 Temmuz 2026</span></div>
+      <div class="digital-header-meta"><span>10 NOLU İŞKOLU</span><span class="version-badge">v2.0 · 17 Kasım 2026</span></div>
     </div>
     <div class="header-container">
-  <div class="social-bar-wrapper">
+  <div class="social-bar-wrapper digital-social">
+      <span class="digital-social-label">SOSYAL MEDYA</span>
       <div class="social-icons">
-        <a href="http://instagram.com/batuhancaglarozkan" target="_blank" class="ins"><i class="fab fa-instagram"></i></a>
-        <a href="https://facebook.com/batuwashere" target="_blank" class="fac"><i class="fab fa-facebook-f"></i></a>
-        <a href="https://x.com/BatuhanOzkann" target="_blank" class="twi"><i class="fab fa-x-twitter"></i></a>
+        <a href="http://instagram.com/batuhancaglarozkan" target="_blank" rel="noopener" class="ins" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://facebook.com/batuwashere" target="_blank" rel="noopener" class="fac" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://x.com/BatuhanOzkann" target="_blank" rel="noopener" class="twi" aria-label="X"><i class="fab fa-x-twitter"></i></a>
       </div>
-      <a href="https://drive.google.com/file/d/1HRuJR0-9wwMaoTG_DuUsf2Pp2vMaCow8/view" target="_blank" class="visitor-btn">
-    <span>10 NO'LU İŞKOLU</span>
-    <span class="v-count"><i class="fas fa-file-pdf"></i> GÜNCEL TİS</span>
-</a>
-
   </div>
 </div>
 
