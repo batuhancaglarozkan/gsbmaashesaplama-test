@@ -357,6 +357,39 @@ body:has(.login-shell){padding:0;background:linear-gradient(145deg,#e8f0eb 0%,#f
  .digital-social .social-icons a{width:29px;height:29px}
 }
 
+
+/* Masaüstü ve mobil için dengeli, ortak kurumsal üst alan */
+@media(min-width:601px){
+ .digital-header{display:flex;flex-direction:column;justify-content:center;align-items:center;min-height:142px;padding:20px 150px 16px;gap:0}
+ .digital-header-logos{position:absolute;inset:0 22px;display:block;pointer-events:none}
+ .institution-logo{position:absolute;left:0;top:50%;transform:translateY(-50%)}
+ .koop-logo{position:absolute;right:0;top:50%;transform:translateY(-50%)}
+ .institution-logo img{width:70px;height:70px}
+ .koop-logo img{width:78px;height:78px}
+ .digital-brand{position:relative;z-index:1}
+ .digital-brand-name{font-size:30px}
+ .digital-brand-subtitle{font-size:10px;letter-spacing:1.3px}
+ .digital-header-meta{flex-direction:row;align-items:center;justify-content:center;gap:10px;margin-top:11px}
+ .digital-header-meta>span:first-child{font-size:9px}
+ .digital-header-meta .version-badge{font-size:9px}
+ .digital-social{justify-content:flex-end!important;margin:0 2px 16px!important}
+}
+.digital-social{justify-content:flex-end;gap:8px}
+.digital-social .social-icons a{width:29px;height:29px;border-radius:9px;background:#f1f6f2;border-color:#e2ece4}
+.digital-social .social-icons a:hover{background:#174c3a;color:#fff}
+@media(max-width:600px){
+ .digital-header{display:grid}
+ .digital-header-logos{display:flex}
+ .digital-social{justify-content:flex-end!important;margin:0 2px 13px!important}
+}
+@media(min-width:601px) and (max-width:760px){
+ .digital-header{padding-left:112px;padding-right:112px}
+ .institution-logo img{width:58px;height:58px}
+ .koop-logo img{width:68px;height:68px}
+ .digital-brand-name{font-size:25px}
+ .digital-brand-subtitle{font-size:8px}
+}
+
 </style>
             </div>
     </div>
@@ -386,7 +419,6 @@ body:has(.login-shell){padding:0;background:linear-gradient(145deg,#e8f0eb 0%,#f
     </div>
     <div class="header-container">
   <div class="social-bar-wrapper digital-social">
-      <span class="digital-social-label">SOSYAL MEDYA</span>
       <div class="social-icons">
         <a href="http://instagram.com/batuhancaglarozkan" target="_blank" rel="noopener" class="ins" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
         <a href="https://facebook.com/batuwashere" target="_blank" rel="noopener" class="fac" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
