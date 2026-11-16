@@ -42,18 +42,24 @@
       text-align: center;
     }
     .brand-mark {
-      width: 104px;
-      height: 104px;
+      width: 128px;
+      height: 128px;
       margin: 0 auto 12px;
-      padding: 9px;
+      padding: 0;
       display: grid;
       place-items: center;
-      border-radius: 50%;
-      background: #fff;
-      border: 1px solid #e5eee8;
-      box-shadow: 0 5px 16px rgba(23,76,58,.12);
+      background: transparent;
+      border: 0;
+      border-radius: 0;
+      box-shadow: none;
     }
-    .brand-mark img { width: 100%; height: 100%; object-fit: contain; display: block; border-radius: 50%; }
+    .brand-mark img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+      border-radius: 0;
+    }
     .brand-name {
       margin: 0;
       color: var(--green);
@@ -174,7 +180,7 @@
         padding: clamp(12px, 3.2svh, 23px) 17px clamp(10px, 2.5svh, 18px);
         border-radius: 20px;
       }
-      .brand-mark { width: clamp(68px, 10svh, 84px); height: clamp(68px, 10svh, 84px); margin-bottom: 8px; }
+      .brand-mark { width: clamp(82px, 12svh, 100px); height: clamp(82px, 12svh, 100px); margin-bottom: 8px; }
       .brand-name { font-size: clamp(27px, 7vw, 34px); }
       .brand-ribbon { margin-top: 6px; padding: 4px 20px 5px; font-size: 11px; }
       .intro { margin: clamp(10px, 2svh, 16px) auto 10px; font-size: 12px; line-height: 1.5; }
@@ -192,7 +198,7 @@
       .notice { font-size: 10px; }
     }
     @media (max-height: 700px) and (max-width: 480px) {
-      .brand-mark { width: 54px; height: 54px; }
+      .brand-mark { width: 68px; height: 68px; }
       .intro { margin: 8px auto; font-size: 11px; }
       .notice { padding: 9px 10px; font-size: 9.5px; }
       .terms-check { margin: 8px 1px; }
