@@ -292,71 +292,38 @@ button{ margin-top:20px; padding:15px; width:100%; background:#1f7a4f; color:#ff
     .splash-content h2 { font-size: 17px !important; }
     .info-card-new li { font-size: 11px; }
     #start-btn-new { padding: 14px !important; font-size: 14px !important; }
-}</style>
+}
+.login-shell{min-height:100vh;min-height:100svh;box-sizing:border-box;display:flex;align-items:center;justify-content:center;padding:22px 16px}
+.login-card{width:min(100%,470px);box-sizing:border-box;background:#fff;border:1px solid #e4ece6;border-radius:26px;padding:28px 32px 22px;box-shadow:0 18px 48px rgba(25,65,46,.12)}
+.login-brand{text-align:center}.login-logo{display:block;width:104px;height:104px;object-fit:contain;margin:0 auto 7px}.login-wordmark{color:#174c3a;font-size:36px;line-height:1.05;letter-spacing:-1.5px;font-weight:900}.login-ribbon{display:inline-block;margin-top:6px;padding:7px 26px;background:#174c3a;color:#fff;font-size:12px;font-weight:800;letter-spacing:4px}.login-subtitle{margin-top:10px;color:#718078;font-size:12px;font-weight:700;letter-spacing:.5px}
+.login-welcome{margin:24px 0 18px;text-align:center}.login-kicker{display:inline-block;color:#287454;background:#edf5ef;border-radius:30px;padding:6px 11px;font-size:9px;font-weight:800;letter-spacing:1.1px}.login-welcome h1{margin:11px 0 5px;color:#203b2e;font-size:23px}.login-welcome p{margin:0;color:#758078;font-size:13px;line-height:1.5}
+.login-form label,.petition-tool label{display:block;margin:0 0 8px;color:#34483c;font-size:12px;font-weight:800}.password-wrap{display:flex;align-items:center;gap:10px;min-height:56px;padding:0 13px;border:1.5px solid #dce7df;border-radius:14px;background:#fbfdfb}.password-wrap:focus-within{border-color:#287454;box-shadow:0 0 0 4px rgba(40,116,84,.11)}.password-icon{color:#56816a;font-size:16px}.password-wrap input{flex:1;min-width:0;width:100%;margin:0;padding:15px 0;border:0;outline:0;box-shadow:none;background:transparent;color:#203b2e;font-size:16px}.password-wrap input:focus{outline:none;box-shadow:none}.password-wrap input::placeholder{color:#9aa79f;font-size:14px}.password-toggle{width:38px;height:38px;flex:0 0 38px;margin:0;padding:0;border:0;border-radius:10px;background:transparent;color:#718078;box-shadow:none;font-size:15px}
+.login-submit{display:flex;align-items:center;justify-content:center;gap:12px;min-height:52px;margin-top:14px;padding:13px 18px;border:0;border-radius:13px;background:#174c3a;color:#fff;font-size:14px;font-weight:800;box-shadow:0 7px 16px rgba(23,76,58,.18)}.login-error{min-height:0;margin:0;color:#b42318;font-size:12px;font-weight:700;text-align:center}.login-error:not(:empty){margin-top:9px}
+.login-tools{display:grid;gap:10px;margin-top:19px}.login-tools>a{display:flex;align-items:center;gap:12px;padding:13px 14px;border:1px solid #e3ebe5;border-radius:13px;background:#f8fbf8;color:#28533e;text-decoration:none}.login-tools>a>i:first-child{font-size:18px;color:#287454}.login-tools>a span{display:flex;flex:1;flex-direction:column;gap:3px}.login-tools>a strong{font-size:12px}.login-tools>a small{color:#849087;font-size:10px}.login-tools .tool-arrow{color:#98a59c;font-size:11px}
+.petition-tool{padding:12px 14px;border:1px solid #e3ebe5;border-radius:13px}.petition-tool label{margin-bottom:6px;font-size:11px}.petition-tool select{min-height:44px;margin:0;border:1px solid #dce7df;border-radius:10px;background:#fff;font-size:14px}.login-footer{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:18px;padding-top:14px;border-top:1px solid #edf1ee;color:#98a39b;font-size:9px}.login-social{display:flex;gap:8px}.login-social a{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:#f0f5f1;color:#426b53;text-decoration:none;font-size:13px}
+body:has(.login-shell){padding:0;background:linear-gradient(145deg,#e8f0eb 0%,#f8faf8 55%,#e5eee8 100%)}
+@media(max-width:520px){.login-shell{padding:max(10px,env(safe-area-inset-top)) 12px max(10px,env(safe-area-inset-bottom))}.login-card{width:100%;padding:clamp(16px,3.2svh,24px) 19px 15px;border-radius:22px}.login-logo{width:clamp(70px,10svh,88px);height:clamp(70px,10svh,88px);margin-bottom:4px}.login-wordmark{font-size:clamp(30px,8vw,35px)}.login-ribbon{margin-top:5px;padding:6px 23px;font-size:10px}.login-subtitle{margin-top:7px;font-size:11px}.login-welcome{margin:clamp(13px,2.4svh,20px) 0 13px}.login-welcome h1{font-size:21px}.login-welcome p{font-size:12px}.password-wrap{min-height:56px}.password-wrap input{font-size:16px}.login-submit{min-height:50px}.login-tools{gap:8px;margin-top:14px}.login-tools>a{padding:11px 12px}.petition-tool{padding:10px 12px}.login-footer{margin-top:13px;padding-top:10px}}
+@media(max-height:740px) and (max-width:520px){.login-shell{align-items:flex-start}.login-card{margin:auto 0}.login-logo{width:62px;height:62px}.login-welcome{margin:9px 0 10px}.login-welcome h1{margin:7px 0 3px;font-size:19px}.login-tools{margin-top:10px}.login-footer{margin-top:9px}}
+@media(max-width:360px){.login-card{padding-left:14px;padding-right:14px}.login-footer{font-size:8px}}
+
+</style>
             </div>
     </div>
 </div>
-</div>   <div id="giris" class="box" style="margin-top: 50px;">
-  <div class="ust-logolar">
-    <img src="https://i.ibb.co/hFTB6fdP/koop-is-logo.png" class="logo-img">
-    <img src="https://i.ibb.co/Lhgbx9Ts/gsb-logo.png" class="logo-img">
-  </div>
-  <div class="header-container">
-    <h1 style="line-height: 1.1; margin-bottom: 10px;">
-      GSB Maaş Hesaplama Robotu
-      <div style="font-size: 16px; font-weight: 600; margin-top: 2px;">(10 Nolu İşkolu)</div>
-    </h1>
-      <span class="version-badge">v1.8 | 23 Temmuz 2026 </span>
-    <div class="social-bar-wrapper">
-<div style="margin: 15px 0; width: 100%; max-width: 250px; text-align: left;">
-    <label style="font-size: 9px; color: #1f7a4f; margin-bottom: 5px; display: block; text-align: left; font-weight: bold;">MATBU DİLEKÇE ÖRNEKLERİ</label>
-    <select id="dilekceListesi" onchange="dilekceyeGit(this.value)" style="border: 2px solid #d4af37; background: #fffdf5; cursor: pointer; font-weight: bold; font-size: 11px; height: 35px; border-radius: 10px;">
-        <option value="">Bir Dilekçe Seçiniz --</option>
-        <option value="https://drive.google.com/file/d/1KVu0xWesx14KQnyOMPTgjTTPfpRrvnd0/view?usp=drive_link">Evlilik İzin Dilekçesi</option>
-        <option value="https://drive.google.com/file/d/14q392fX9571dZnUEms6Ze9zumrv7QhfI/view?usp=drive_link">Ölüm İzni Dilekçesi</option>
-        <option value="https://drive.google.com/file/d/1IIxB0_A6qEh_DdFLPFQwyACt8eZOvNjZ/view?usp=drive_link">Doğal Afet İzin Dilekçesi</option>
-        <option value="https://drive.google.com/file/d/1PXrK1ln3-JR2ge6eEM8bvEDqC_TU_UlG/view?usp=drive_link">Babalık İzin Dilekçesi</option>
-        <option value="https://drive.google.com/file/d/1x7nEOAJGoGPz544nWosCvhvd3CmaVXxu/view?usp=drive_link">Çocuğun Evlenmesi İzin Dilekçesi</option>
-        <option value="https://drive.google.com/file/d/1s-EEKW7bU_BDdHZ82i9QmF1eJOMwHnHR/view?usp=drive_link">Evlat Edinme İzin Dilekçesi</option>
-        <option value="https://drive.google.com/file/d/1vJXGMcsA0oxhPL_aKKRNSTkqzzmXLlCP/view">Engelli Çocuk İçin Tedavi İzin Dilekçesi</option>
-	    <option value="https://drive.google.com/file/d/1qjqc7LDR9lzDpnRYD_CWy6YtLv45mplD/view">Refakatçi İzin Dilekçesi</option>
-        <option value="https://drive.google.com/file/d/1XyPG4Svf3Hy9PCVmN8AKgGv7vVUFOBa4/view?usp=drive_link">Mazeret İzin Dilekçesi</option>
-        <option value="https://drive.google.com/file/d/1SExrose1cQgF9WfcTwpvqsBVQ6QQOGbh/view?usp=drive_link">Ücretsiz Mazeret izin Dilekçesi</option> 
-	<option value="https://drive.google.com/file/d/1-nybTjyjzAqQ4pXUDVKw7lbzIWB0WTky/view?usp=drive_link">10 yılını dolduran Ücretsiz Mazeret izin Dilekçesi</option>
-	<option value="https://drive.google.com/file/d/1nX2tg2635n84on7sFrDRiUlIgGzMb_wj/view?usp=drive_link">Kreş Yardımı Talep Dilekçesi</option>
-
-    </select>
- <label style="font-size: 9px; color: #1f7a4f; margin-bottom: 5px; display: block; text-align: left; font-weight: bold;">Dilekçeleri Google Drive uygulamasından açabilirsiniz.</label>
-</div>
-       <a href="https://drive.google.com/file/d/1HRuJR0-9wwMaoTG_DuUsf2Pp2vMaCow8/view" target="_blank" class="visitor-btn">
-    <span>10 NO'LU İŞKOLU</span>
-    <span class="v-count"><i class="fas fa-file-pdf"></i>GÜNCEL TİS</span>
-</a>
-
-    </div>
-  </div>
-  <label>Şifre</label>
-<input type="password" id="sifre" placeholder="Robot Şifresini giriniz.">
-
-<div style="text-align: right; margin-top: 5px;">
-    <button onclick="kontrol()" style="width: 100%; margin-top: 15px;">GİRİŞ YAPINIZ.</button>
-    
-    <div style="font-size: 9px; color: rgba(0, 0, 0, 0.4); font-weight: 700; letter-spacing: 0.5px; margin-top: 8px; text-transform: uppercase;">
-        <i class="fas fa-terminal" style="font-size: 8px; margin-right: 3px;"></i> 
-        <span style="color: #1f7a4f;">Batuhan Çağlar ÖZKAN</span> tarafından geliştirilmiştir. 
-<div class="social-icons">
-          <a href="http://instagram.com/batuhancaglarozkan" target="_blank" class="ins"><i class="fab fa-instagram"></i></a>
-          <a href="https://facebook.com/batuwashere" target="_blank" class="fac"><i class="fab fa-facebook-f"></i></a>
-          <a href="https://x.com/BatuhanOzkann" target="_blank" class="twi"><i class="fab fa-x-twitter"></i></a>
-        </div>
-    </div>
-</div>
-</div>
-
+</div>   <div id="giris" class="login-shell">
+<main class="login-card">
+<div class="login-brand"><img src="https://i.ibb.co/7t7zNQq2/koop-i-gri-arka-planl-logo.png" alt="Koop-İş Sendikası" class="login-logo"><div class="login-wordmark">KOOP-İŞ</div><div class="login-ribbon">D İ J İ T A L</div><div class="login-subtitle">GSB · 10 Nolu İşkolu</div></div>
+<div class="login-welcome"><span class="login-kicker">ÜYELERE ÖZEL ERİŞİM</span><h1>Hoş geldiniz</h1><p>Devam etmek için ortak erişim şifresini giriniz.</p></div>
+<form class="login-form" onsubmit="event.preventDefault(); kontrol();"><label for="sifre">Erişim şifresi</label><div class="password-wrap"><span class="password-icon"><i class="fas fa-lock"></i></span><input type="password" id="sifre" placeholder="Şifrenizi giriniz" autocomplete="current-password"><button type="button" class="password-toggle" onclick="sifreyiGoster()" aria-label="Şifreyi göster veya gizle"><i id="sifreIkon" class="fas fa-eye"></i></button></div><button type="submit" class="login-submit"><span>Giriş yap</span><i class="fas fa-arrow-right"></i></button><p id="login-error" class="login-error" role="alert" aria-live="polite"></p></form>
+<div class="login-tools"><a href="https://drive.google.com/file/d/1HRuJR0-9wwMaoTG_DuUsf2Pp2vMaCow8/view" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i><span><strong>Güncel Toplu İş Sözleşmesi</strong><small>10 Nolu İşkolu</small></span><i class="fas fa-arrow-up-right-from-square tool-arrow"></i></a>
+<div class="petition-tool"><label for="dilekceListesi">Matbu dilekçe örnekleri</label><select id="dilekceListesi" onchange="dilekceyeGit(this.value)"><option value="">Bir dilekçe seçiniz</option>
+<option value="https://drive.google.com/file/d/1KVu0xWesx14KQnyOMPTgjTTPfpRrvnd0/view?usp=drive_link">Evlilik İzin Dilekçesi</option><option value="https://drive.google.com/file/d/14q392fX9571dZnUEms6Ze9zumrv7QhfI/view?usp=drive_link">Ölüm İzni Dilekçesi</option><option value="https://drive.google.com/file/d/1IIxB0_A6qEh_DdFLPFQwyACt8eZOvNjZ/view?usp=drive_link">Doğal Afet İzin Dilekçesi</option><option value="https://drive.google.com/file/d/1PXrK1ln3-JR2ge6eEM8bvEDqC_TU_UlG/view?usp=drive_link">Babalık İzin Dilekçesi</option><option value="https://drive.google.com/file/d/1x7nEOAJGoGPz544nWosCvhvd3CmaVXxu/view?usp=drive_link">Çocuğun Evlenmesi İzin Dilekçesi</option><option value="https://drive.google.com/file/d/1s-EEKW7bU_BDdHZ82i9QmF1eJOMwHnHR/view?usp=drive_link">Evlat Edinme İzin Dilekçesi</option><option value="https://drive.google.com/file/d/1vJXGMcsA0oxhPL_aKKRNSTkqzzmXLlCP/view">Engelli Çocuk İçin Tedavi İzin Dilekçesi</option><option value="https://drive.google.com/file/d/1qjqc7LDR9lzDpnRYD_CWy6YtLv45mplD/view">Refakatçi İzin Dilekçesi</option><option value="https://drive.google.com/file/d/1XyPG4Svf3Hy9PCVmN8AKgGv7vVUFOBa4/view?usp=drive_link">Mazeret İzin Dilekçesi</option><option value="https://drive.google.com/file/d/1SExrose1cQgF9WfcTwpvqsBVQ6QQOGbh/view?usp=drive_link">Ücretsiz Mazeret İzin Dilekçesi</option><option value="https://drive.google.com/file/d/1-nybTjyjzAqQ4pXUDVKw7lbzIWB0WTky/view?usp=drive_link">10 yılını dolduran ücretsiz mazeret izin dilekçesi</option><option value="https://drive.google.com/file/d/1nX2tg2635n84on7sFrDRiUlIgGzMb_wj/view?usp=drive_link">Kreş Yardımı Talep Dilekçesi</option></select></div></div>
+<div class="login-footer"><div class="login-social"><a href="https://instagram.com/batuhancaglarozkan" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a><a href="https://facebook.com/batuwashere" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i></a><a href="https://x.com/BatuhanOzkann" target="_blank" rel="noopener"><i class="fab fa-x-twitter"></i></a></div><span>KOOP-İŞ DİJİTAL · GSB 10 Nolu İşkolu</span></div>
+</main></div>
 <div id="icerik" style="display:none">
   <div class="box">
     <div class="ust-logolar">
-      <img src="https://i.ibb.co/hFTB6fdP/koop-is-logo.png" class="logo-img">
+      <img src="https://i.ibb.co/7t7zNQq2/koop-i-gri-arka-planl-logo.png" class="logo-img">
       <img src="https://i.ibb.co/Lhgbx9Ts/gsb-logo.png" class="logo-img">
     </div>
     <div class="header-container">
@@ -643,12 +610,8 @@ function robotuBaslat() {
         splash.style.display = 'none';
     }, 600);
 }
-function kontrol(){
-  if(document.getElementById("sifre").value==="gsbkoopis"){
-    document.getElementById("giris").style.display="none";
-    document.getElementById("icerik").style.display="block";
-  }else{ alert("Şifre yanlış."); }
-}
+function sifreyiGoster(){const alan=document.getElementById("sifre");const ikon=document.getElementById("sifreIkon");const acik=alan.type==="password";alan.type=acik?"text":"password";ikon.className=acik?"fas fa-eye-slash":"fas fa-eye";}
+function kontrol(){const alan=document.getElementById("sifre");const hata=document.getElementById("login-error");if(alan.value==="gsbkoopis"){hata.textContent="";document.getElementById("giris").style.display="none";document.getElementById("icerik").style.display="block";window.scrollTo(0,0);}else{hata.textContent="Şifre doğru değil. Lütfen tekrar deneyiniz.";alan.focus();alan.select();}}
 
 function kadroGuncelle() {
     let k = document.getElementById("kadro").value;
