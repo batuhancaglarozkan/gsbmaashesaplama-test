@@ -411,6 +411,24 @@ body:has(.login-shell){padding:0;background:linear-gradient(145deg,#e8f0eb 0%,#f
  }
 }
 
+
+/* Sade sosyal medya alanı ve hesaplama ekranına daha fazla çalışma alanı */
+.digital-social{margin-bottom:9px!important}
+.digital-social .social-icons{gap:6px!important}
+.digital-social .social-icons a{width:26px!important;height:26px!important;font-size:11px!important;border-radius:8px!important}
+.digital-social .social-icons a i{line-height:1}
+#icerik>.box+.box{max-width:1040px}
+.digital-credit{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:5px 14px;margin-top:18px;padding-top:12px;border-top:1px solid #e8eee9;color:#8a968e;font-size:10px;font-weight:600}
+.digital-credit span{color:#718078}
+.digital-credit strong{color:#174c3a;font-weight:800}
+@media(max-width:600px){
+ .digital-social{margin-bottom:8px!important}
+ .digital-social .social-icons{gap:6px!important}
+ .digital-social .social-icons a{width:25px!important;height:25px!important;font-size:10px!important}
+ #icerik>.box+.box{max-width:100%}
+ .digital-credit{font-size:9px;gap:4px 9px;margin-top:14px}
+}
+
 </style>
             </div>
     </div>
@@ -587,7 +605,7 @@ body:has(.login-shell){padding:0;background:linear-gradient(145deg,#e8f0eb 0%,#f
   <button onclick="detayGoster()" style="background: #444; margin-top: 15px; padding: 12px;">Detay Göster / Gizle</button>
   <div id="sonuc" style="display:none"></div>
   
-  <div class="footer-note">© 2026 GSB Maaş Hesaplama Robotu | Son Güncelleme: 3 Temmuz 2026</div>
+  <div class="footer-note digital-credit">© 2026 KOOP-İŞ DİJİTAL · GSB 10 Nolu İşkolu <span>Geliştiren: <strong>Batuhan Çağlar ÖZKAN</strong></span></div>
 </div>
 </div>
 
