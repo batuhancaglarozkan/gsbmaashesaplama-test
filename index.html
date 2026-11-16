@@ -67,7 +67,7 @@
       margin-top: 8px;
       padding: 5px 24px 6px;
       color: white;
-      background: var(--orange);
+      background: var(--green);
       font-size: 12px;
       font-weight: 800;
       letter-spacing: 5px;
@@ -154,18 +154,6 @@
     }
     .btn:not(.btn-disabled):hover { transform: translateY(-2px); box-shadow: 0 10px 22px rgba(8,124,244,.25); }
     .btn-disabled { opacity: .42; pointer-events: none; box-shadow: none; }
-    .quick-info {
-      margin-top: 16px;
-      padding: 15px 17px;
-      border-radius: 15px;
-      color: #553500;
-      background: linear-gradient(100deg, #ffd45a, #ffbd19);
-      box-shadow: 0 6px 14px rgba(195,137,0,.16);
-      font-size: 12px;
-      line-height: 1.55;
-      text-align: center;
-    }
-    .quick-info strong { display: block; margin-bottom: 3px; font-size: 13px; }
     .footer {
       margin-top: 19px;
       color: #89948d;
@@ -174,17 +162,41 @@
     }
     .footer a { color: var(--green); text-decoration: none; font-weight: 700; }
     @media (max-width: 480px) {
-      body { padding: 14px 11px; align-items: flex-start; }
-      .page { margin: auto 0; }
-      .card { padding: 24px 18px 20px; border-radius: 21px; }
-      .brand-mark { width: 78px; height: 78px; }
-      .intro { margin: 18px auto 15px; font-size: 13px; }
-      .notice { padding: 14px; font-size: 11.5px; }
-      .quick-info { padding: 13px 14px; }
+      html, body { width: 100%; min-height: 100%; }
+      body {
+        min-height: 100svh; height: 100svh; max-height: 100svh; overflow: hidden;
+        padding: max(8px, env(safe-area-inset-top)) 10px max(8px, env(safe-area-inset-bottom));
+        align-items: center;
+      }
+      .page { width: 100%; height: 100%; max-height: 100%; display: flex; align-items: center; justify-content: center; }
+      .card {
+        width: 100%; max-height: 100%; overflow: auto;
+        padding: clamp(12px, 3.2svh, 23px) 17px clamp(10px, 2.5svh, 18px);
+        border-radius: 20px;
+      }
+      .brand-mark { width: clamp(58px, 9svh, 76px); height: clamp(58px, 9svh, 76px); margin-bottom: 8px; }
+      .brand-name { font-size: clamp(27px, 7vw, 34px); }
+      .brand-ribbon { margin-top: 6px; padding: 4px 20px 5px; font-size: 11px; }
+      .intro { margin: clamp(10px, 2svh, 16px) auto 10px; font-size: 12px; line-height: 1.5; }
+      .eyebrow { margin-bottom: 9px; padding: 6px 10px; font-size: 10px; }
+      .notice { padding: 11px 12px; font-size: 10.5px; line-height: 1.48; }
+      .notice-title { margin-bottom: 6px; font-size: 11px; }
+      .notice li + li { margin-top: 4px; }
+      .terms-check { margin: 11px 1px 10px; font-size: 11px; gap: 8px; }
+      .btn { min-height: 44px; padding: 11px 15px; font-size: 13px; }
+      .footer { margin-top: 12px; font-size: 9px; }
     }
     @media (max-width: 350px) {
-      .card { padding: 21px 14px 18px; }
+      .card { padding-left: 13px; padding-right: 13px; }
       .brand-ribbon { letter-spacing: 3.5px; }
+      .notice { font-size: 10px; }
+    }
+    @media (max-height: 700px) and (max-width: 480px) {
+      .brand-mark { width: 54px; height: 54px; }
+      .intro { margin: 8px auto; font-size: 11px; }
+      .notice { padding: 9px 10px; font-size: 9.5px; }
+      .terms-check { margin: 8px 1px; }
+      .footer { margin-top: 8px; }
     }
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; }
@@ -233,11 +245,6 @@
       <a href="gsb10maas.html" id="targetBtn" class="btn btn-disabled" aria-disabled="true">
         Devam Et&nbsp; → 
       </a>
-
-      <div class="quick-info">
-        <strong>KOOP-İŞ DİJİTAL</strong>
-        GSB 10 No'lu İşkolu çalışanları için maaş hesaplama ve toplu iş sözleşmesi bilgilendirme alanı.
-      </div>
 
       <div class="footer">
         Tasarım ve geliştirme: <a href="https://instagram.com/batuhancaglarozkan" target="_blank" rel="noopener noreferrer">Batuhan Çağlar Özkan</a><br>
