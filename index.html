@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+	<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4NKS7TDEH8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-4NKS7TDEH8');
+</script>
+    <script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./sw.js?v=3').then(reg => {
+      reg.update();
+    });
+  });
+}
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maaş Hesaplama Robotu</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle at top, #0f5132, #06281f);
+    color: white;
+}
+
+.wrapper {
+    width: 92%;
+    max-width: 560px;
+}
+
+.card {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 18px;
+    padding: 22px;
+    backdrop-filter: blur(14px);
+    box-shadow: 0 10px 35px rgba(0,0,0,0.35);
+    text-align: center;
+}
+
+/* LOGO */
+.logo-area {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+}
+
+.logo-area img {
+    width: 78px;
+    background: white;
+    padding: 8px;
+    border-radius: 12px;
+}
+
+/* TITLE */
+h1 {
+    font-size: 20px;
+    margin: 10px 0 6px;
+}
+
+.subtitle {
+    font-size: 13px;
+    opacity: 0.85;
+    margin-bottom: 14px;
+}
+
+/* BADGE */
+.badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #20c997, #198754);
+    padding: 8px 12px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 14px;
+}
+
+/* INFO BOX */
+.box {
+    background: rgba(255,255,255,0.06);
+    padding: 14px;
+    border-radius: 12px;
+    margin: 10px 0;
+    text-align: left;
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+.box strong {
+    display: block;
+    margin-bottom: 6px;
+}
+
+/* ONAY KUTUSU (CHECKBOX) */
+.terms-check {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin: 14px 0 6px;
+    font-size: 13px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.terms-check input[type="checkbox"] {
+    width: 17px;
+    height: 17px;
+    cursor: pointer;
+    accent-color: #20c997;
+}
+
+/* BUTTONS */
+.btn {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    margin-top: 12px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.25s;
+    color: white;
+    box-sizing: border-box;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #198754, #20c997);
+}
+
+.btn-secondary {
+    background: linear-gradient(135deg, #0d6efd, #6610f2);
+}
+
+/* Pasif Buton Stili */
+.btn-disabled {
+    background: rgba(255, 255, 255, 0.2) !important;
+    color: rgba(255, 255, 255, 0.5) !important;
+    pointer-events: none;
+    cursor: not-allowed;
+    box-shadow: none !important;
+    transform: none !important;
+}
+
+.btn:not(.btn-disabled):hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+/* FOOTER */
+.footer {
+    font-size: 11px;
+    opacity: 0.75;
+    margin-top: 14px;
+}
+
+.signature {
+    font-size: 11px;
+    opacity: 0.6;
+    margin-top: 6px;
+}
+
+/* DESIGN SIGNATURE BOX */
+.credit {
+    margin-top: 14px;
+    padding: 10px;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.05);
+    font-size: 12px;
+    opacity: 0.85;
+    border-left: 3px solid #20c997;
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+    h1 { font-size: 17px; }
+    .logo-area img { width: 65px; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="wrapper">
+
+<div class="card">
+
+    <div class="logo-area">
+        <img src="https://i.ibb.co/hFTB6fdP/koop-is-logo.png">
+        <img src="https://i.ibb.co/Lhgbx9Ts/gsb-logo.png">
+    </div>
+
+    
+
+    <div class="badge">
+        💵 MAAŞ HESAPLAMA ROBOTU
+    </div>
+
+<h1>T.C. GENÇLİK VE SPOR BAKANLIĞI</h1>
+
+    <div class="subtitle">
+        10 NOLU İŞ KOLU İŞÇİLERİ
+    </div>
+
+    <div class="box">
+        <strong>⚠️<b> <span style="color: red;"><b>MAAŞ HESAPLAMA ROBOTU HAKKINDA</b></span></b></strong>
+        ➡️ Bu robot yalnızca bilgilendirme ve tahmin amacıyla hazırlanmış olup resmi bir bordro veya ödeme belgesi niteliği taşımamaktadır.<br> <br>
+	➡️ Yapılan hesaplamalar tamamen girilen veriler doğrultusunda oluşmaktadır.<br> <br>
+	➡️ Yapılacak hesaplamalara; BES kesintisi, fazla mesai, izin ve benzeri ek ödeme veya kesintiler dahil değildir.<br><br>
+	➡️ GSB Resmi Bordro Programına ulaşmak için <a href="http://ekip.gsb.gov.tr" target="_blank" style="color: red; text-decoration: none;"><b>Tıklayınız.</b></a><br><br>
+	➡️ Maaş hesaplamaları her ayın 15'i ile takip eden ayın 14'ü arasındaki dönemi kapsayacak şekilde yapılır. (Örn: 15 Ağustos - 14 Eylül)<br> <br>
+	➡️ Yapılacak olan hatalı hesaplamalarda sorumluluk kabul edilmemektedir.    
+</div>
+
+    <!-- ONAY KUTUSU -->
+    <label class="terms-check">
+        <input type="checkbox" id="acceptCheck" onchange="toggleButton()">
+        Yukarıdaki bilgilendirmeleri okudum ve kabul ediyorum.
+    </label>
+
+    
+    <a href="gsb10maas.html" id="targetBtn" class="btn btn-secondary btn-disabled">
+        🚀 Maaş Hesaplama Robotuna Git </a>
+
+    <div class="credit">
+        🎨 Tasarım & Geliştirme: <b><a href="https://instagram.com/batuhancaglarozkan" target="_blank" style="color: inherit; text-decoration: none;">Batuhan Çağlar Özkan</a></b> 
+    </div>
+
+    <div class="footer">
+        Koop-İş Sendikası & GSB Maaş Hesaplama Sistemi
+    </div>
+
+</div>
+
+</div>
+
+<script>
+function toggleButton() {
+    const checkBox = document.getElementById('acceptCheck');
+    const targetBtn = document.getElementById('targetBtn');
+    
+    if (checkBox.checked) {
+        targetBtn.classList.remove('btn-disabled');
+    } else {
+        targetBtn.classList.add('btn-disabled');
+    }
+}
+</script>
+
+</body>
+</html>
