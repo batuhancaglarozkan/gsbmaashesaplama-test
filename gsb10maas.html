@@ -993,72 +993,73 @@ function detayGoster(){
 </script>
 <script>
 
-/* Mevcut alan kimlikleri ve hesaplama fonksiyonları korunarak adım görünümü oluşturulur. */
-(function initSalaryWizard(){
- const root=document.getElementById("icerik");
- if(!root || root.dataset.wizardReady==="1") return;
- const titles=Array.from(root.querySelectorAll(".section-title"));
- if(titles.length!==5) return;
- const steps=[];
- titles.forEach((title,index)=>{
+/* Beş adımlı görünüm: mevcut alanlar, kimlikler ve hesaplama fonksiyonları korunur. */
+(function(){
+ function initSalaryWizard(){
+  const root=document.getElementById("icerik");
+  if(!root || root.dataset.wizardReady==="1") return;
+  const titles=Array.from(root.querySelectorAll(".section-title"));
+  if(titles.length!==5){
+   console.error("Maaş hesaplama adımları başlatılamadı. Bölüm sayısı:",titles.length);
+   return;
+  }
+  const steps=[];
+  for(let i=0;i<titles.length;i++){
+   const title=titles[i];
    const fields=title.nextElementSibling;
-   if(!fields || !fields.classList.contains("grid-container")) return;
+   if(!fields || !fields.classList.contains("grid-container")){
+    console.error("Adım alanı bulunamadı:",i+1);
+    return;
+   }
    const panel=document.createElement("section");
    panel.className="salary-step";
    panel.setAttribute("aria-label",title.textContent.trim());
    title.parentNode.insertBefore(panel,title);
-   panel.appendChild(title);
-   panel.appendChild(fields);
-   steps.push(panel);
-   if(index===4){
-     const action=fields.nextElementSibling;
-     if(action && action.querySelector && action.querySelector('button[onclick="hesapla()"]')){
-       action.classList.add("digital-calc-action");
-       panel.appendChild(action);
-     }
+   panel.append(title,fields);
+   if(i===4){
+    const action=fields.nextElementSibling;
+    if(action && action.querySelector && action.querySelector('button[onclick="hesapla()"]')){
+     action.classList.add("digital-calc-action");
+     panel.appendChild(action);
+    }
    }
- });
- if(steps.length!==5) return;
- root.dataset.wizardReady="1";
- const wizard=document.createElement("div");
- wizard.className="salary-wizard";
- const progress=document.createElement("div");
- progress.className="wizard-progress";
- progress.innerHTML='<div class="wizard-progress-copy"><strong>MAAŞ HESAPLAMA ADIMLARI</strong><span id="wizardStepName">Temel Bilgiler ve Vergi Dilimi</span></div><span class="wizard-progress-count" id="wizardStepCount">1 / 5</span>';
- const track=document.createElement("div");
- track.className="wizard-track";
- for(let i=0;i<5;i++){const bar=document.createElement("span");track.appendChild(bar);}
- const panels=document.createElement("div");
- panels.className="wizard-panels";
- steps.forEach(step=>panels.appendChild(step));
- const nav=document.createElement("div");
- nav.className="wizard-navigation";
- nav.innerHTML='<button type="button" class="wizard-prev" id="wizardPrev">← Geri</button><span class="wizard-step-hint" id="wizardHint">İlk adım</span><button type="button" class="wizard-next" id="wizardNext">Devam Et →</button>';
- const first=steps[0];
- first.parentNode.insertBefore(wizard,first);
- wizard.append(progress,track,panels,nav);
- let current=0;
- const names=["Temel Bilgiler ve Vergi Dilimi","Yan Haklar","Mesai ve Ek Gelirler","Yardım ve Tazminatlar","Vergi ve Özel Durum Bilgileri"];
- function render(){
+   steps.push(panel);
+  }
+  const wizard=document.createElement("div");
+  wizard.className="salary-wizard";
+  wizard.innerHTML='<div class="wizard-progress"><div class="wizard-progress-copy"><strong>MAAŞ HESAPLAMA ADIMLARI</strong><span id="wizardStepName">Temel Bilgiler ve Vergi Dilimi</span></div><span class="wizard-progress-count" id="wizardStepCount">1 / 5</span></div><div class="wizard-track"><span></span><span></span><span></span><span></span><span></span></div><div class="wizard-panels"></div><div class="wizard-navigation"><button type="button" class="wizard-prev" id="wizardPrev" disabled>← Geri</button><span class="wizard-step-hint" id="wizardHint">İlk adım</span><button type="button" class="wizard-next" id="wizardNext">Devam Et →</button></div>';
+  const first=steps[0];
+  first.parentNode.insertBefore(wizard,first);
+  const panels=wizard.querySelector(".wizard-panels");
+  steps.forEach(step=>panels.appendChild(step));
+  const names=["Temel Bilgiler ve Vergi Dilimi","Yan Haklar","Mesai ve Ek Gelirler","Yardım ve Tazminatlar","Vergi ve Özel Durum Bilgileri"];
+  let current=0;
+  function render(){
    steps.forEach((step,i)=>{step.classList.toggle("is-active",i===current);step.setAttribute("aria-hidden",i===current?"false":"true");});
-   track.querySelectorAll("span").forEach((bar,i)=>bar.classList.toggle("done",i<=current));
-   document.getElementById("wizardStepName").textContent=names[current];
-   document.getElementById("wizardStepCount").textContent=(current+1)+" / 5";
-   document.getElementById("wizardPrev").disabled=current===0;
-   document.getElementById("wizardNext").style.display=current===4?"none":"";
-   document.getElementById("wizardHint").textContent=current===4?"Son adım · Hesaplamaya hazırsınız":(current+1)+". adımdan "+(5-current)+" adım kaldı";
+   wizard.querySelectorAll(".wizard-track span").forEach((bar,i)=>bar.classList.toggle("done",i<=current));
+   wizard.querySelector("#wizardStepName").textContent=names[current];
+   wizard.querySelector("#wizardStepCount").textContent=(current+1)+" / 5";
+   wizard.querySelector("#wizardPrev").disabled=current===0;
+   wizard.querySelector("#wizardNext").hidden=current===4;
+   wizard.querySelector("#wizardHint").textContent=current===4?"Son adım · Hesaplamaya hazırsınız":(current+1)+". adımdan sonra "+(4-current)+" adım kalıyor";
+  }
+  wizard.querySelector("#wizardPrev").addEventListener("click",function(){
+   if(current>0){current--;render();wizard.scrollIntoView({behavior:"smooth",block:"start"});}
+  });
+  wizard.querySelector("#wizardNext").addEventListener("click",function(){
+   if(current===0){
+    const kadro=document.getElementById("kadro"),donem=document.getElementById("donem");
+    if(!kadro.value){alert("Lütfen kadro/unvan seçiniz.");kadro.focus();return;}
+    if(!donem.value){alert("Lütfen maaş dönemi seçiniz.");donem.focus();return;}
+   }
+   if(current<4){current++;render();wizard.scrollIntoView({behavior:"smooth",block:"start"});}
+  });
+  root.dataset.wizardReady="1";
+  render();
  }
- function validateFirst(){
-   const kadro=document.getElementById("kadro"), donem=document.getElementById("donem");
-   if(!kadro.value){alert("Lütfen kadro/unvan seçiniz.");kadro.focus();return false;}
-   if(!donem.value){alert("Lütfen maaş dönemi seçiniz.");donem.focus();return false;}
-   return true;
- }
- document.getElementById("wizardPrev").addEventListener("click",()=>{if(current>0){current--;render();wizard.scrollIntoView({behavior:"smooth",block:"start"});}});
- document.getElementById("wizardNext").addEventListener("click",()=>{if(current===0&&!validateFirst())return;if(current<4){current++;render();wizard.scrollIntoView({behavior:"smooth",block:"start"});}});
- render();
+ if(document.readyState==="loading") document.addEventListener("DOMContentLoaded",initSalaryWizard,{once:true});
+ else initSalaryWizard();
 })();
-
 </script>
 </body>
 </html>
