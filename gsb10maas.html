@@ -429,6 +429,43 @@ body:has(.login-shell){padding:0;background:linear-gradient(145deg,#e8f0eb 0%,#f
  .digital-credit{font-size:9px;gap:4px 9px;margin-top:14px}
 }
 
+
+/* KOOP-İŞ DİJİTAL - beş adımlı maaş hesaplama arayüzü */
+.salary-wizard{max-width:100%;margin:0 auto}
+.salary-step{display:none;animation:wizardIn .22s ease}
+.salary-step.is-active{display:block}
+.salary-step .section-title{margin-top:0;margin-bottom:16px;padding:13px 16px;border-radius:12px;font-size:13px;letter-spacing:.25px;background:linear-gradient(100deg,#174c3a,#246b4e)}
+.salary-step .grid-container{gap:14px}
+.wizard-progress{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:2px 0 13px;padding:12px 14px;background:#f3f7f4;border:1px solid #e3ece5;border-radius:14px}
+.wizard-progress-copy{display:flex;flex-direction:column;gap:3px;min-width:0}
+.wizard-progress-copy strong{font-size:12px;color:#174c3a}
+.wizard-progress-copy span{font-size:10px;color:#718078}
+.wizard-progress-count{flex:0 0 auto;font-size:11px;font-weight:800;color:#174c3a}
+.wizard-track{display:flex;gap:5px;margin:0 0 18px}
+.wizard-track span{height:5px;flex:1;border-radius:99px;background:#e4ebe6;transition:background .2s}
+.wizard-track span.done{background:#174c3a}
+.wizard-navigation{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:18px;padding-top:14px;border-top:1px solid #e8eee9}
+.wizard-navigation button{width:auto;min-width:112px;margin:0;padding:12px 18px;border-radius:12px;font-size:13px;box-shadow:none}
+.wizard-prev{background:#edf3ef;color:#315d45;border:1px solid #dce8df}
+.wizard-next{background:#174c3a;color:#fff}
+.wizard-navigation button:disabled{opacity:.35;cursor:not-allowed}
+.wizard-step-hint{font-size:10px;color:#87948b;text-align:center;flex:1}
+.salary-step .info-note{margin-top:12px}
+.salary-step .digital-calc-action{margin-top:16px!important}
+.salary-step .digital-calc-action>button{margin-top:0!important;min-height:52px}
+@keyframes wizardIn{from{opacity:.45;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:600px){
+ .salary-wizard{margin:0}
+ .wizard-progress{padding:10px 12px;margin-bottom:10px}
+ .wizard-track{margin-bottom:14px}
+ .salary-step .section-title{font-size:11px;padding:11px 12px;margin-bottom:12px}
+ .salary-step .grid-container{gap:10px}
+ .wizard-navigation{position:sticky;bottom:0;z-index:30;background:rgba(255,255,255,.97);padding:10px 0 max(10px,env(safe-area-inset-bottom));margin:14px -2px 0}
+ .wizard-navigation button{min-width:96px;padding:12px 14px;font-size:12px}
+ .wizard-step-hint{font-size:9px}
+ .salary-step .digital-calc-action>button{min-height:50px}
+}
+
 </style>
             </div>
     </div>
@@ -953,6 +990,75 @@ function detayGoster(){
   if(s.style.display === "block") s.style.display = "none";
   else { s.style.display = "block"; tabloCiz(); }
 }
+</script>
+<script>
+
+/* Mevcut alan kimlikleri ve hesaplama fonksiyonları korunarak adım görünümü oluşturulur. */
+(function initSalaryWizard(){
+ const root=document.getElementById("icerik");
+ if(!root || root.dataset.wizardReady==="1") return;
+ const titles=Array.from(root.querySelectorAll(".section-title"));
+ if(titles.length!==5) return;
+ const steps=[];
+ titles.forEach((title,index)=>{
+   const fields=title.nextElementSibling;
+   if(!fields || !fields.classList.contains("grid-container")) return;
+   const panel=document.createElement("section");
+   panel.className="salary-step";
+   panel.setAttribute("aria-label",title.textContent.trim());
+   title.parentNode.insertBefore(panel,title);
+   panel.appendChild(title);
+   panel.appendChild(fields);
+   steps.push(panel);
+   if(index===4){
+     const action=fields.nextElementSibling;
+     if(action && action.querySelector && action.querySelector('button[onclick="hesapla()"]')){
+       action.classList.add("digital-calc-action");
+       panel.appendChild(action);
+     }
+   }
+ });
+ if(steps.length!==5) return;
+ root.dataset.wizardReady="1";
+ const wizard=document.createElement("div");
+ wizard.className="salary-wizard";
+ const progress=document.createElement("div");
+ progress.className="wizard-progress";
+ progress.innerHTML='<div class="wizard-progress-copy"><strong>MAAŞ HESAPLAMA ADIMLARI</strong><span id="wizardStepName">Temel Bilgiler ve Vergi Dilimi</span></div><span class="wizard-progress-count" id="wizardStepCount">1 / 5</span>';
+ const track=document.createElement("div");
+ track.className="wizard-track";
+ for(let i=0;i<5;i++){const bar=document.createElement("span");track.appendChild(bar);}
+ const panels=document.createElement("div");
+ panels.className="wizard-panels";
+ steps.forEach(step=>panels.appendChild(step));
+ const nav=document.createElement("div");
+ nav.className="wizard-navigation";
+ nav.innerHTML='<button type="button" class="wizard-prev" id="wizardPrev">← Geri</button><span class="wizard-step-hint" id="wizardHint">İlk adım</span><button type="button" class="wizard-next" id="wizardNext">Devam Et →</button>';
+ const first=steps[0];
+ first.parentNode.insertBefore(wizard,first);
+ wizard.append(progress,track,panels,nav);
+ let current=0;
+ const names=["Temel Bilgiler ve Vergi Dilimi","Yan Haklar","Mesai ve Ek Gelirler","Yardım ve Tazminatlar","Vergi ve Özel Durum Bilgileri"];
+ function render(){
+   steps.forEach((step,i)=>{step.classList.toggle("is-active",i===current);step.setAttribute("aria-hidden",i===current?"false":"true");});
+   track.querySelectorAll("span").forEach((bar,i)=>bar.classList.toggle("done",i<=current));
+   document.getElementById("wizardStepName").textContent=names[current];
+   document.getElementById("wizardStepCount").textContent=(current+1)+" / 5";
+   document.getElementById("wizardPrev").disabled=current===0;
+   document.getElementById("wizardNext").style.display=current===4?"none":"";
+   document.getElementById("wizardHint").textContent=current===4?"Son adım · Hesaplamaya hazırsınız":(current+1)+". adımdan "+(5-current)+" adım kaldı";
+ }
+ function validateFirst(){
+   const kadro=document.getElementById("kadro"), donem=document.getElementById("donem");
+   if(!kadro.value){alert("Lütfen kadro/unvan seçiniz.");kadro.focus();return false;}
+   if(!donem.value){alert("Lütfen maaş dönemi seçiniz.");donem.focus();return false;}
+   return true;
+ }
+ document.getElementById("wizardPrev").addEventListener("click",()=>{if(current>0){current--;render();wizard.scrollIntoView({behavior:"smooth",block:"start"});}});
+ document.getElementById("wizardNext").addEventListener("click",()=>{if(current===0&&!validateFirst())return;if(current<4){current++;render();wizard.scrollIntoView({behavior:"smooth",block:"start"});}});
+ render();
+})();
+
 </script>
 </body>
 </html>
