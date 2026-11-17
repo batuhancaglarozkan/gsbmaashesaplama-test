@@ -463,6 +463,36 @@ body:has(.login-shell){padding:0;background:linear-gradient(145deg,#e8f0eb 0%,#f
  .salary-step .digital-calc-action>button[onclick="hesapla()"]{min-width:280px;min-height:56px;padding:16px 32px!important;font-size:15px}
  .salary-step .digital-calc-action .digital-detail-button{min-width:260px;min-height:56px;padding:15px 28px!important;font-size:14px}
 }
+/* Sonuç kartı ve yeniden hesaplama */
+.net-tutar-card{overflow:hidden}
+.digital-recalculate{display:none;align-items:center;justify-content:center;width:auto;min-width:220px;margin:14px auto 4px;padding:13px 24px;background:#fff;color:#174c3a;border:1px solid #cbdcd0;border-radius:12px;font-size:13px;font-weight:800;letter-spacing:.3px;box-shadow:0 4px 14px rgba(23,76,58,.08)}
+.digital-recalculate:hover{background:#f2f7f3}
+.receipt-container{font-family:Arial,Helvetica,sans-serif;border:1px solid #e1e9e3;border-top:6px solid #174c3a;border-radius:16px;padding:22px;box-shadow:0 12px 30px rgba(20,55,35,.09);overflow:hidden}
+.receipt-header{border-bottom:1px solid #dce7df;padding:8px 0 18px;margin-bottom:16px}
+.receipt-header>div:first-child{font-size:15px!important;letter-spacing:1px}
+.receipt-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;align-items:start;margin:0;padding:11px 2px;border-bottom:1px solid #edf1ee;font-size:13px;line-height:1.4}
+.receipt-row span:first-child{min-width:0;padding-right:0;overflow-wrap:anywhere;word-break:normal;color:#34443a}
+.receipt-row span:last-child{white-space:nowrap;text-align:right;color:#174c3a;font-variant-numeric:tabular-nums}
+.receipt-row.aidat-row span{color:#b54747}
+.receipt-total{margin-top:14px;padding:15px 12px;background:#edf5ef;border:1px solid #dce9df;border-radius:12px;font-size:15px;color:#174c3a}
+.receipt-total span:first-child{font-weight:800}
+.receipt-total span:last-child{font-weight:900}
+.receipt-footer{border-top:1px solid #e3ebe5;color:#7b887f;font-size:10px;line-height:1.5;margin-top:16px;padding-top:14px}
+@media(max-width:600px){
+ .net-tutar-card{padding:28px 12px!important;border-radius:26px;margin-top:20px}
+ .net-tutar-title{font-size:12px;letter-spacing:1.2px;margin-bottom:9px}
+ .net-tutar-rakam{font-size:clamp(21px,6.2vw,28px)!important;line-height:1.2;letter-spacing:-.8px;gap:5px;flex-wrap:nowrap;white-space:nowrap}
+ .digital-recalculate{width:100%;max-width:100%;min-height:48px;margin:12px 0 4px}
+ .receipt-container{padding:14px 11px;border-radius:13px;margin-top:14px}
+ .receipt-header{padding:5px 0 14px}
+ .receipt-header>div:first-child{font-size:13px!important}
+ .receipt-row{grid-template-columns:minmax(0,1fr) auto;gap:7px;padding:10px 1px;font-size:11.5px;line-height:1.35}
+ .receipt-row span:first-child{font-size:11.5px;overflow-wrap:anywhere}
+ .receipt-row span:last-child{font-size:11px;white-space:nowrap}
+ .receipt-total{font-size:12px;padding:12px 8px;gap:6px}
+ .receipt-total span:last-child{font-size:12px}
+ .receipt-footer{font-size:9px}
+}
 @media(max-width:600px){
  .salary-step .digital-calc-action{display:grid;grid-template-columns:1fr;gap:9px;padding:12px;margin-top:16px!important}
  .salary-step .digital-calc-action>button[onclick="hesapla()"],.salary-step .digital-calc-action .digital-detail-button{width:100%!important;min-width:0;min-height:48px}
@@ -655,6 +685,7 @@ body:has(.login-shell){padding:0;background:linear-gradient(145deg,#e8f0eb 0%,#f
     <div class="net-tutar-title">Ödenecek Net Tutar</div>
     <div class="net-tutar-rakam" id="toplamNet">0.00 TL</div>
   </div>
+  <button type="button" id="yenidenHesaplaBtn" class="digital-recalculate" onclick="yenidenHesapla()" style="display:none;">↻ YENİDEN HESAPLA</button>
 
   <div id="sonuc" style="display:none"></div>
   
@@ -968,6 +999,8 @@ if(donemText.includes("14 Mayıs")) {
   document.getElementById("toplamNet").innerHTML = "💰 " + toplam.toLocaleString('tr-TR', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + " TL";
   const sonucKarti=document.getElementById("sonucAlani");
   sonucKarti.style.display = "block";
+  const yenidenBtn=document.getElementById("yenidenHesaplaBtn");
+  if(yenidenBtn) yenidenBtn.style.display="inline-flex";
   window.detayData = detay;
   window.hesaplananKadro = document.getElementById("kadro").value;
   window.hesaplananDonem = donemText;
@@ -1017,6 +1050,18 @@ function detayGoster(){
     tabloCiz();
     window.setTimeout(()=>s.scrollIntoView({behavior:"smooth",block:"start"}),80);
   }
+}
+
+function yenidenHesapla(){
+  const root=document.getElementById("icerik");
+  const sonucKarti=document.getElementById("sonucAlani");
+  const detay=document.getElementById("sonuc");
+  const yenidenBtn=document.getElementById("yenidenHesaplaBtn");
+  if(sonucKarti) sonucKarti.style.display="none";
+  if(detay) detay.style.display="none";
+  if(yenidenBtn) yenidenBtn.style.display="none";
+  if(root && typeof root._goToStep==="function") root._goToStep(0);
+  else window.scrollTo({top:0,behavior:"smooth"});
 }
 </script>
 <script>
@@ -1093,6 +1138,11 @@ function detayGoster(){
    }
    if(current<4){current++;render();wizard.scrollIntoView({behavior:"smooth",block:"start"});}
   });
+  root._goToStep=function(index){
+   current=Math.max(0,Math.min(4,Number(index)||0));
+   render();
+   wizard.scrollIntoView({behavior:"smooth",block:"start"});
+  };
   root.dataset.wizardReady="1";
   render();
  }
