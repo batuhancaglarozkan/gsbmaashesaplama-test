@@ -823,6 +823,11 @@ function yogurtOtomatikGuncelle() {
     }
 }
 function hesapla(){
+  const wizardRoot = document.getElementById("icerik");
+  if (wizardRoot && wizardRoot.dataset.wizardReady === "1" && wizardRoot.dataset.wizardStep !== "4") {
+    alert("Maaş hesaplaması yapabilmek için lütfen beş adımın tamamını bitiriniz.");
+    return;
+  }
   if(!document.getElementById("kadro").value || !document.getElementById("donem").value){
     alert("Lütfen kadro/unvan ve maaş dönemini eksiksiz seçiniz!"); 
     return;
@@ -1035,6 +1040,7 @@ function detayGoster(){
   const names=["Temel Bilgiler ve Vergi Dilimi","Yan Haklar","Mesai ve Ek Gelirler","Yardım ve Tazminatlar","Vergi ve Özel Durum Bilgileri"];
   let current=0;
   function render(){
+   root.dataset.wizardStep=String(current);
    steps.forEach((step,i)=>{step.classList.toggle("is-active",i===current);step.setAttribute("aria-hidden",i===current?"false":"true");});
    wizard.querySelectorAll(".wizard-track span").forEach((bar,i)=>bar.classList.toggle("done",i<=current));
    wizard.querySelector("#wizardStepName").textContent=names[current];
