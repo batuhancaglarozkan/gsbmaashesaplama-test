@@ -513,6 +513,29 @@ body:has(.login-shell){padding:0;background:linear-gradient(145deg,#e8f0eb 0%,#f
  .salary-step .digital-calc-action>button{min-height:50px}
 }
 
+
+/* Son düzenleme: net tutar, geri düğmesi ve geliştirici imzası */
+.net-tutar-card{margin-top:12px!important;padding:26px 14px!important;overflow:hidden}
+.net-tutar-rakam{display:block!important;width:100%;max-width:100%;font-size:clamp(28px,4.2vw,44px)!important;line-height:1.14!important;letter-spacing:-1.2px!important;white-space:normal!important;overflow-wrap:anywhere;word-break:normal;filter:drop-shadow(0 3px 5px rgba(0,0,0,.25))}
+.wizard-progress{align-items:flex-start}
+.wizard-progress-copy{align-items:flex-start;gap:5px}
+.wizard-prev{order:0;width:auto!important;min-width:0!important;margin:0 0 4px!important;padding:6px 11px!important;border-radius:9px!important;font-size:11px!important;line-height:1.2}
+.wizard-progress-copy strong{order:1}
+.wizard-progress-copy span{order:2}
+.wizard-navigation{justify-content:flex-end}
+.digital-credit{margin-top:22px;padding:15px 10px 4px;border-top:1px solid #dce8df;color:#829087;font-size:10px;letter-spacing:.15px}
+.digital-credit span{color:#5f7567}
+.digital-credit strong{color:#174c3a;font-weight:900}
+@media(max-width:600px){
+ .net-tutar-card{margin-top:10px!important;padding:22px 10px!important;border-radius:24px!important}
+ .net-tutar-title{font-size:12px!important;letter-spacing:1.4px!important;margin-bottom:9px!important}
+ .net-tutar-rakam{font-size:clamp(25px,7.1vw,34px)!important;letter-spacing:-.9px!important;line-height:1.16!important}
+ .wizard-progress{padding:11px 12px}
+ .wizard-progress-copy strong{font-size:11px}
+ .wizard-progress-copy span{font-size:10px}
+ .wizard-prev{font-size:11px!important;padding:6px 10px!important}
+ .digital-credit{font-size:9px;margin-top:18px;padding-top:12px}
+}
 </style>
             </div>
     </div>
@@ -675,10 +698,6 @@ body:has(.login-shell){padding:0;background:linear-gradient(145deg,#e8f0eb 0%,#f
         MAAŞ HESAPLA
     </button>
     
-    <div style="font-size: 9px; color: rgba(0, 0, 0, 0.4); font-weight: 700; letter-spacing: 0.5px; margin-top: 8px; text-transform: uppercase;">
-        <i class="fas fa-terminal" style="font-size: 8px; margin-right: 3px;"></i> 
-        <span style="color: #1f7a4f;">Batuhan Çağlar ÖZKAN</span> tarafından geliştirilmiştir.
-    </div>
 </div>
 
   <div class="net-tutar-card" id="sonucAlani" style="display:none;">
@@ -689,7 +708,7 @@ body:has(.login-shell){padding:0;background:linear-gradient(145deg,#e8f0eb 0%,#f
 
   <div id="sonuc" style="display:none"></div>
   
-  <div class="footer-note digital-credit">© 2026 KOOP-İŞ DİJİTAL · GSB 10 Nolu İşkolu <span>Geliştiren: <strong>Batuhan Çağlar ÖZKAN</strong></span></div>
+  <div class="footer-note digital-credit">© 2026 KOOP-İŞ DİJİTAL · GSB 10 Nolu İşkolu <span>Tasarım ve geliştirme: <strong>Batuhan Çağlar ÖZKAN</strong></span></div>
 </div>
 </div>
 
@@ -1109,7 +1128,7 @@ function yenidenHesapla(){
   }
   const wizard=document.createElement("div");
   wizard.className="salary-wizard";
-  wizard.innerHTML='<div class="wizard-progress"><div class="wizard-progress-copy"><strong>MAAŞ HESAPLAMA ADIMLARI</strong><span id="wizardStepName">Temel Bilgiler ve Vergi Dilimi</span></div><span class="wizard-progress-count" id="wizardStepCount">1 / 5</span></div><div class="wizard-track"><span></span><span></span><span></span><span></span><span></span></div><div class="wizard-panels"></div><div class="wizard-navigation"><button type="button" class="wizard-prev" id="wizardPrev" disabled>← Geri</button><span class="wizard-step-hint" id="wizardHint">İlk adım</span><button type="button" class="wizard-next" id="wizardNext">Devam Et →</button></div>';
+  wizard.innerHTML='<div class="wizard-progress"><div class="wizard-progress-copy"><button type="button" class="wizard-prev" id="wizardPrev" disabled>← Geri</button><strong>MAAŞ HESAPLAMA ADIMLARI</strong><span id="wizardStepName">Temel Bilgiler ve Vergi Dilimi</span></div><span class="wizard-progress-count" id="wizardStepCount">1 / 5</span></div><div class="wizard-track"><span></span><span></span><span></span><span></span><span></span></div><div class="wizard-panels"></div><div class="wizard-navigation"><span class="wizard-step-hint" id="wizardHint">İlk adım</span><button type="button" class="wizard-next" id="wizardNext">Devam Et →</button></div>';
   const first=steps[0];
   first.parentNode.insertBefore(wizard,first);
   const panels=wizard.querySelector(".wizard-panels");
