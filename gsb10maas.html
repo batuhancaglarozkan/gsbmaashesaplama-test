@@ -451,8 +451,17 @@ body:has(.login-shell){padding:0;background:linear-gradient(145deg,#e8f0eb 0%,#f
 .wizard-navigation button:disabled{opacity:.35;cursor:not-allowed}
 .wizard-step-hint{font-size:10px;color:#87948b;text-align:center;flex:1}
 .salary-step .info-note{margin-top:12px}
-.salary-step .digital-calc-action{margin-top:16px!important}
-.salary-step .digital-calc-action>button{margin-top:0!important;min-height:52px}
+.salary-step .digital-calc-action{display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-end;gap:10px;margin-top:20px!important;padding:16px;background:#f5f8f6;border:1px solid #e2ebe5;border-radius:16px}
+.salary-step .digital-calc-action>button[onclick="hesapla()"]{width:auto!important;min-width:210px;margin:0!important;padding:14px 24px!important;min-height:50px;background:linear-gradient(135deg,#174c3a,#236b4d)!important;color:#fff;border:0;border-radius:12px;font-size:14px;font-weight:800;letter-spacing:.2px;box-shadow:0 6px 16px rgba(23,76,58,.18)}
+.salary-step .digital-calc-action .digital-detail-button{width:auto!important;min-width:190px;margin:0!important;padding:13px 20px!important;min-height:50px;background:#fff!important;color:#174c3a!important;border:1px solid #cbdcd0!important;border-radius:12px;font-size:13px;font-weight:750;box-shadow:none;cursor:pointer}
+.salary-step .digital-calc-action>div{flex-basis:100%;text-align:right}
+@media(max-width:600px){
+ .salary-step .digital-calc-action{display:grid;grid-template-columns:1fr;gap:9px;padding:12px;margin-top:16px!important}
+ .salary-step .digital-calc-action>button[onclick="hesapla()"],.salary-step .digital-calc-action .digital-detail-button{width:100%!important;min-width:0;min-height:48px}
+ .salary-step .digital-calc-action>button[onclick="hesapla()"]{order:1}
+ .salary-step .digital-calc-action .digital-detail-button{order:2}
+ .salary-step .digital-calc-action>div{order:3;text-align:center}
+}
 @keyframes wizardIn{from{opacity:.45;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
 @media(max-width:600px){
  .salary-wizard{margin:0}
@@ -639,7 +648,6 @@ body:has(.login-shell){padding:0;background:linear-gradient(145deg,#e8f0eb 0%,#f
     <div class="net-tutar-rakam" id="toplamNet">0.00 TL</div>
   </div>
 
-  <button onclick="detayGoster()" style="background: #444; margin-top: 15px; padding: 12px;">Detay Göster / Gizle</button>
   <div id="sonuc" style="display:none"></div>
   
   <div class="footer-note digital-credit">© 2026 KOOP-İŞ DİJİTAL · GSB 10 Nolu İşkolu <span>Geliştiren: <strong>Batuhan Çağlar ÖZKAN</strong></span></div>
@@ -1025,6 +1033,12 @@ function detayGoster(){
     const action=fields.nextElementSibling;
     if(action && action.querySelector && action.querySelector('button[onclick="hesapla()"]')){
      action.classList.add("digital-calc-action");
+     const detailButton=root.querySelector('button[onclick="detayGoster()"]');
+     if(detailButton){
+      detailButton.className="digital-detail-button";
+      detailButton.textContent="Detaylı Bordroyu Görüntüle";
+      action.appendChild(detailButton);
+     }
      panel.appendChild(action);
     }
    }
