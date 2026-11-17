@@ -458,6 +458,11 @@ body:has(.login-shell){padding:0;background:linear-gradient(145deg,#e8f0eb 0%,#f
 .salary-step .digital-calc-action>button[onclick="hesapla()"]{width:auto!important;min-width:210px;margin:0!important;padding:14px 24px!important;min-height:50px;background:linear-gradient(135deg,#174c3a,#236b4d)!important;color:#fff;border:0;border-radius:12px;font-size:14px;font-weight:800;letter-spacing:.2px;box-shadow:0 6px 16px rgba(23,76,58,.18)}
 .salary-step .digital-calc-action .digital-detail-button{width:auto!important;min-width:190px;margin:0!important;padding:13px 20px!important;min-height:50px;background:#fff!important;color:#174c3a!important;border:1px solid #cbdcd0!important;border-radius:12px;font-size:13px;font-weight:750;box-shadow:none;cursor:pointer}
 .salary-step .digital-calc-action>div{flex-basis:100%;text-align:right}
+@media(min-width:601px){
+ .salary-step .digital-calc-action{justify-content:center;gap:14px;padding:20px 22px}
+ .salary-step .digital-calc-action>button[onclick="hesapla()"]{min-width:280px;min-height:56px;padding:16px 32px!important;font-size:15px}
+ .salary-step .digital-calc-action .digital-detail-button{min-width:260px;min-height:56px;padding:15px 28px!important;font-size:14px}
+}
 @media(max-width:600px){
  .salary-step .digital-calc-action{display:grid;grid-template-columns:1fr;gap:9px;padding:12px;margin-top:16px!important}
  .salary-step .digital-calc-action>button[onclick="hesapla()"],.salary-step .digital-calc-action .digital-detail-button{width:100%!important;min-width:0;min-height:48px}
@@ -961,11 +966,14 @@ if(donemText.includes("14 Mayıs")) {
   let netAidat = (brutAidat - (brutAidat * vYuzde)) * -1;
   ekle("Sendika Aidat Kesintisi %65", netAidat, "", true);
   document.getElementById("toplamNet").innerHTML = "💰 " + toplam.toLocaleString('tr-TR', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + " TL";
-  document.getElementById("sonucAlani").style.display = "block";
+  const sonucKarti=document.getElementById("sonucAlani");
+  sonucKarti.style.display = "block";
   window.detayData = detay;
   window.hesaplananKadro = document.getElementById("kadro").value;
   window.hesaplananDonem = donemText;
   if(document.getElementById("sonuc").style.display === "block") tabloCiz();
+  // Hesaplama tamamlandığında net tutarı ekranın görünür merkezine getir.
+  window.setTimeout(()=>sonucKarti.scrollIntoView({behavior:"smooth",block:"center"}),80);
 }
 
 function tabloCiz(){
@@ -1004,7 +1012,11 @@ function tabloCiz(){
 function detayGoster(){
   let s = document.getElementById("sonuc");
   if(s.style.display === "block") s.style.display = "none";
-  else { s.style.display = "block"; tabloCiz(); }
+  else {
+    s.style.display = "block";
+    tabloCiz();
+    window.setTimeout(()=>s.scrollIntoView({behavior:"smooth",block:"start"}),80);
+  }
 }
 </script>
 <script>
@@ -1067,7 +1079,8 @@ function detayGoster(){
    wizard.querySelector("#wizardStepCount").textContent=(current+1)+" / 5";
    wizard.querySelector("#wizardPrev").disabled=current===0;
    wizard.querySelector("#wizardNext").hidden=current===4;
-   wizard.querySelector("#wizardHint").textContent=current===4?"Son adım · Hesaplamaya hazırsınız":(current+1)+". adımdan sonra "+(4-current)+" adım kalıyor";
+   wizard.querySelector("#wizardHint").textContent=current===4?"":(current+1)+". adımdan sonra "+(4-current)+" adım kalıyor";
+   wizard.querySelector("#wizardHint").hidden=current===4;
   }
   wizard.querySelector("#wizardPrev").addEventListener("click",function(){
    if(current>0){current--;render();wizard.scrollIntoView({behavior:"smooth",block:"start"});}
