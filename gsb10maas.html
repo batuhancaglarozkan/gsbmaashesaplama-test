@@ -18,7 +18,7 @@
   }
 </script>	
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>GSB Maaş Hesaplama Robotu</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 <style>
@@ -527,12 +527,12 @@ body:has(.login-shell){padding:0;background:linear-gradient(145deg,#e8f0eb 0%,#f
 /* Son düzenleme: net tutar, geri düğmesi ve geliştirici imzası */
 .net-tutar-card{margin-top:12px!important;padding:26px 14px!important;overflow:hidden}
 .net-tutar-rakam{display:block!important;width:100%;max-width:100%;font-size:clamp(28px,4.2vw,44px)!important;line-height:1.14!important;letter-spacing:-1.2px!important;white-space:normal!important;overflow-wrap:anywhere;word-break:normal;filter:drop-shadow(0 3px 5px rgba(0,0,0,.25))}
-.wizard-progress{align-items:flex-start}
+.wizard-progress{align-items:center}
 .wizard-progress-copy{align-items:flex-start;gap:5px}
-.wizard-prev{order:0;width:auto!important;min-width:0!important;margin:0 0 4px!important;padding:6px 11px!important;border-radius:9px!important;font-size:11px!important;line-height:1.2}
-.wizard-progress-copy strong{order:1}
-.wizard-progress-copy span{order:2}
-.wizard-navigation{justify-content:flex-end}
+.wizard-navigation{justify-content:space-between}
+.wizard-prev{background:#174c3a!important;color:#fff!important;border:0!important}
+.wizard-prev:hover{background:#236b4d!important}
+.wizard-prev[hidden]{display:none!important}
 .digital-credit{margin-top:22px;padding:15px 10px 4px;border-top:1px solid #dce8df;color:#829087;font-size:10px;letter-spacing:.15px}
 .digital-credit span{color:#5f7567}
 .digital-credit strong{color:#174c3a;font-weight:900}
@@ -543,7 +543,7 @@ body:has(.login-shell){padding:0;background:linear-gradient(145deg,#e8f0eb 0%,#f
  .wizard-progress{padding:11px 12px}
  .wizard-progress-copy strong{font-size:11px}
  .wizard-progress-copy span{font-size:10px}
- .wizard-prev{font-size:11px!important;padding:6px 10px!important}
+
  .digital-credit{font-size:9px;margin-top:18px;padding-top:12px}
 }
 
@@ -559,49 +559,24 @@ body:has(.login-shell){padding:0;background:linear-gradient(145deg,#e8f0eb 0%,#f
  #yemekToggle.compact-meal-toggle{padding:7px 10px!important;font-size:10px!important}
 }
 
-/* Kompakt görüş ve öneri bağlantısı - sol üst */
-.feedback-card{display:inline-flex;align-items:center;justify-content:flex-start;gap:10px;width:auto;max-width:100%;margin:0 0 10px;padding:7px 10px;border:1px solid #dce9df;border-left:3px solid #287454;border-radius:10px;background:#f7faf8;box-shadow:none}
-.feedback-copy{display:flex;align-items:center;gap:8px;min-width:0}
-.feedback-icon{display:grid;place-items:center;flex:0 0 28px;width:28px;height:28px;border-radius:8px;background:#e7f1e9;color:#1d6545;font-size:13px}
-.feedback-copy strong{display:block;color:#174c3a;font-size:11px;font-weight:850;white-space:nowrap}
-.feedback-copy p{display:none}
-.feedback-button{display:inline-flex;align-items:center;justify-content:center;gap:6px;flex:0 0 auto;min-height:30px;padding:6px 10px;border:0;border-radius:8px;background:#174c3a;color:#fff;text-decoration:none;font-size:10px;font-weight:800;white-space:nowrap;box-shadow:none;cursor:pointer}
+/* Sosyal medya bağlantılarıyla aynı hizada kompakt görüş bildir butonu */
+.feedback-button{display:inline-flex;align-items:center;justify-content:center;gap:6px;flex:0 0 auto;min-height:29px;margin:0;padding:5px 9px;border:1px solid #d5e4d9;border-radius:9px;background:#174c3a;color:#fff;text-decoration:none;font-size:9px;font-weight:800;white-space:nowrap;box-shadow:none;cursor:pointer;line-height:1}
 .feedback-button:hover{background:#236b4d}
-@media(max-width:600px){.feedback-card{display:flex;width:fit-content;max-width:100%;gap:7px;margin:0 0 9px;padding:6px 8px}.feedback-copy{gap:6px}.feedback-icon{width:25px;height:25px;flex-basis:25px;font-size:12px}.feedback-copy strong{font-size:10px}.feedback-button{min-height:29px;padding:6px 8px;font-size:9px;gap:4px}}
-
-
-/* Mobil üst aksiyonlar: sosyal medya ve görüş bildir aynı satırda */
-.header-container{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:12px!important}
-.header-container .digital-social{flex:0 0 auto;margin:0!important;min-height:0;width:auto!important}
-.header-container .feedback-card{flex:0 1 auto;margin:0!important;min-width:0}
-.header-container .feedback-copy{gap:5px}
+.header-container{display:flex;align-items:center;justify-content:flex-start;gap:9px;margin-bottom:12px!important}
+.header-container .digital-social{flex:0 0 auto;margin:0!important;min-height:0;width:auto!important;justify-content:flex-start!important}
+.header-container .digital-social .social-icons{align-items:center}
 @media(max-width:600px){
- .header-container{gap:8px;margin-bottom:9px!important}
+ .header-container{gap:7px;margin-bottom:9px!important}
  .header-container .digital-social{width:auto!important;padding:0!important;justify-content:flex-start!important}
  .header-container .digital-social .social-icons{margin:0!important;gap:5px!important}
  .header-container .digital-social .social-icons a{width:25px!important;height:25px!important}
- .header-container .feedback-card{gap:5px;padding:5px 7px;min-height:25px}
- .header-container .feedback-icon{width:22px;height:22px;flex-basis:22px;font-size:11px}
- .header-container .feedback-copy{gap:5px}
- .header-container .feedback-copy strong{font-size:9px}
- .header-container .feedback-button{min-height:25px;padding:5px 7px;font-size:8px;gap:3px}
- .wizard-progress{padding:8px 10px;margin:0 0 8px;border-radius:10px;gap:7px}
- .wizard-progress-copy{gap:3px}
- .wizard-progress-copy strong{font-size:9px;letter-spacing:-.15px;line-height:1.15}
- .wizard-progress-copy span{font-size:9px}
- .wizard-progress-count{font-size:9px}
- .wizard-prev{padding:5px 8px!important;font-size:9px!important;margin-bottom:2px!important}
- .wizard-track{gap:4px;margin-bottom:10px}
- .wizard-track span{height:4px}
+ .feedback-button{min-height:25px;padding:5px 8px;font-size:8px;gap:4px}
 }
 @media(max-width:360px){
  .header-container{gap:5px}
- .header-container .feedback-card{gap:4px;padding:4px 5px}
- .header-container .feedback-copy strong{font-size:8px}
- .header-container .feedback-button{font-size:7px;padding:4px 5px}
  .header-container .digital-social .social-icons{gap:4px!important}
  .header-container .digital-social .social-icons a{width:23px!important;height:23px!important}
- .wizard-progress-copy strong{font-size:8px}
+ .feedback-button{font-size:7px;padding:4px 6px}
 }
 
 </style>
@@ -640,18 +615,9 @@ body:has(.login-shell){padding:0;background:linear-gradient(145deg,#e8f0eb 0%,#f
         <a href="https://x.com/BatuhanOzkann" target="_blank" rel="noopener" class="twi" aria-label="X"><i class="fab fa-x-twitter"></i></a>
       </div>
   </div>
-  <section class="feedback-card" aria-label="Görüş ve öneriler">
-  <div class="feedback-copy">
-    <div class="feedback-icon" aria-hidden="true"><i class="fas fa-comment-dots"></i></div>
-    <div>
-      <strong>Görüş ve Önerileriniz</strong>
-      <p>Programımızı geliştirmemize katkı sağlayın. Görüş ve önerilerinizi bizimle paylaşın.</p>
-    </div>
-  </div>
-  <a class="feedback-button" href="https://forms.gle/v7sPB94CDKP4Ciwa6" target="_blank" rel="noopener noreferrer">
-    Görüş ve Öneri Bildir <i class="fas fa-arrow-right"></i>
+  <a class="feedback-button" href="https://forms.gle/v7sPB94CDKP4Ciwa6" target="_blank" rel="noopener noreferrer" aria-label="Görüş ve Öneri Bildir">
+    <i class="fas fa-comment-dots" aria-hidden="true"></i> Görüş ve Öneri Bildir
   </a>
-  </section>
 </div>
 
 <div class="box">
@@ -1160,7 +1126,7 @@ function yenidenHesapla(){
   }
   const wizard=document.createElement("div");
   wizard.className="salary-wizard";
-  wizard.innerHTML='<div class="wizard-progress"><div class="wizard-progress-copy"><button type="button" class="wizard-prev" id="wizardPrev" disabled>← Geri</button><strong>MAAŞ HESAPLAMA ADIMLARI</strong><span id="wizardStepName">TEMEL BİLGİLER</span></div><span class="wizard-progress-count" id="wizardStepCount">1 / 5</span></div><div class="wizard-track"><span></span><span></span><span></span><span></span><span></span></div><div class="wizard-panels"></div><div class="wizard-navigation"><span class="wizard-step-hint" id="wizardHint">İlk adım</span><button type="button" class="wizard-next" id="wizardNext">Devam Et →</button></div>';
+  wizard.innerHTML='<div class="wizard-progress"><div class="wizard-progress-copy"><strong>MAAŞ HESAPLAMA ADIMLARI</strong><span id="wizardStepName">TEMEL BİLGİLER</span></div><span class="wizard-progress-count" id="wizardStepCount">1 / 5</span></div><div class="wizard-track"><span></span><span></span><span></span><span></span><span></span></div><div class="wizard-panels"></div><div class="wizard-navigation"><button type="button" class="wizard-prev" id="wizardPrev" hidden>← Geri</button><span class="wizard-step-hint" id="wizardHint">İlk adım</span><button type="button" class="wizard-next" id="wizardNext">Devam Et →</button></div>';
   const first=steps[0];
   first.parentNode.insertBefore(wizard,first);
   const panels=wizard.querySelector(".wizard-panels");
@@ -1173,7 +1139,7 @@ function yenidenHesapla(){
    wizard.querySelectorAll(".wizard-track span").forEach((bar,i)=>bar.classList.toggle("done",i<=current));
    wizard.querySelector("#wizardStepName").textContent=names[current];
    wizard.querySelector("#wizardStepCount").textContent=(current+1)+" / 5";
-   wizard.querySelector("#wizardPrev").disabled=current===0;
+   wizard.querySelector("#wizardPrev").hidden=current===0;
    wizard.querySelector("#wizardNext").hidden=current===4;
    wizard.querySelector("#wizardHint").textContent=current===4?"":(current+1)+". adımdan sonra "+(4-current)+" adım kalıyor";
    wizard.querySelector("#wizardHint").hidden=current===4;
