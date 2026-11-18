@@ -596,7 +596,7 @@ body:has(.login-shell){padding:0;background:linear-gradient(145deg,#e8f0eb 0%,#f
   <div class="section-title">1. BÖLÜM: TEMEL BİLGİLER</div>
   <div class="grid-container">
     <div><label class="red-label">Brüt Yevmiye Ücreti Seçiniz*</label><select id="brutYevmiye"><option value="2680.95">2680,95 TL (Eski İşçi)</option><option value="2642.41">2642,41 TL (Yeni İşçi)</option></select></div>
-    <div><label class="red-label">Kadro/Unvan Seçiniz *</label><select id="kadro" onchange="kadroGuncelle(); this.className='field-selected'" class="required-field"><option value="">KADRO SEÇİNİZ</option><option>Temizlik Personeli</option><option>Büro Personeli</option><option>Büro Personeli (Görevlendirme)</option><option>Bilgi İşlem Personeli</option><option>Gençlik Lideri / Antrenör</option><option>Yüzme Antrenörü</option><option>Cankurtaran</option><option>Bakım-Onarım / Teknisyen</option><option>İklimlendirme/Kaloriferci 12 saat çalışan</option><option>İklimlendirme/Kaloriferci 8 saat çalışan</option><option>Özel Güvenlik Görevlisi 12 saat çalışan</option><option>Özel Güvenlik Görevlisi 8 saat çalışan</option><option>Havuz Suyu Operatörü</option><option>Aşçı</option><option>Sekreter</option><option>Şoför 12 saat çalışan</option><option>Şoför 8 saat çalışan</option><option>Resepsiyonist</option><option>Muhasebeci</option><option>Sağlık Personeli</option></select></div>
+    <div><label class="red-label">Kadro/Unvan Seçiniz *</label><select id="kadro" onchange="kadroGuncelle(); this.className='field-selected'" class="required-field"><option value="">KADRO SEÇİNİZ</option><option>Temizlik Personeli</option><option>Büro Personeli</option><option>Büro Personeli (Görevlendirme)</option><option>Bilgi İşlem Personeli</option><option>Antrenör</option><option>Gençlik Lideri</option><option>Elektrik Teknisyeni / Elektrik Teknikeri</option><option>Makine Teknikeri</option><option>Yüzme Antrenörü</option><option>Cankurtaran</option><option>Bakım-Onarım / Teknisyen</option><option>İklimlendirme/Kaloriferci 12 saat çalışan</option><option>İklimlendirme/Kaloriferci 8 saat çalışan</option><option>Özel Güvenlik Görevlisi 12 saat çalışan</option><option>Özel Güvenlik Görevlisi 8 saat çalışan</option><option>Havuz Suyu Operatörü</option><option>Aşçı</option><option>Sekreter</option><option>Şoför 12 saat çalışan</option><option>Şoför 8 saat çalışan</option><option>Resepsiyonist</option><option>Muhasebeci</option><option>Sağlık Personeli</option></select></div>
     <div><label class="red-label">Maaş Dönemi Seçiniz*</label><select id="donem" onchange="donemGuncelle(this.value); this.className='field-selected'" class="required-field"><option value="">Maaş Dönemi Seçiniz</option><option value="31">15 Temmuz - 14 Ağustos (31 gün)</option><option value="31">15 Ağustos - 14 Eylül (31 gün)</option><option value="30">15 Eylül - 14 Ekim (30 gün)</option><option value="31">15 Ekim - 14 Kasım (31 gün)</option><option value="30">15 Kasım - 14 Aralık (30 gün)</option><option value="31">15 Aralık - 14 Ocak 2027 (31 gün)</option></select><input type="hidden" id="gun"></div>
     <div><label>Gelir Vergisi Dilimi</label><select id="vergiOrani"><option value="0.71491" data-val="0.15">1. Dilim (%15)</option><option value="0.67241" data-val="0.20">2. Dilim (%20)</option><option value="0.61291" data-val="0.27">3. Dilim (%27)</option><option value="0.54491" data-val="0.35">4. Dilim (%35)</option></select></div>
   </div>
@@ -757,6 +757,8 @@ function yogurtOtomatikGuncelle() {
     // Yeni Sözleşme: Yoğurt yardımı alan tüm kadrolar
     let yogurtKadro = [
         "Yüzme Antrenörü",
+        "Elektrik Teknisyeni / Elektrik Teknikeri",
+        "Makine Teknikeri",
         "Cankurtaran",
         "Havuz Suyu Operatörü",
         "İklimlendirme/Kaloriferci 12 saat çalışan",
@@ -833,7 +835,7 @@ function yogurtOtomatikGuncelle() {
 
     // Yoğurt yardımı alan kadrolar listesi
     let yogurtKadro = [
-        "Yüzme Antrenörü", "Cankurtaran", "Havuz Suyu Operatörü",
+        "Yüzme Antrenörü", "Elektrik Teknisyeni / Elektrik Teknikeri", "Makine Teknikeri", "Cankurtaran",
         "İklimlendirme/Kaloriferci 12 saat çalışan", "İklimlendirme/Kaloriferci 8 saat çalışan",
         "Bakım-Onarım / Teknisyen", "Bilgi İşlem Personeli", "Temizlik Personeli"
     ];
