@@ -477,30 +477,33 @@ body:has(.login-shell){padding:0;background:linear-gradient(145deg,#e8f0eb 0%,#f
 .net-tutar-card{overflow:hidden}
 .digital-recalculate{display:none;align-items:center;justify-content:center;width:auto;min-width:220px;margin:14px auto 4px;padding:13px 24px;background:#fff;color:#174c3a;border:1px solid #cbdcd0;border-radius:12px;font-size:13px;font-weight:800;letter-spacing:.3px;box-shadow:0 4px 14px rgba(23,76,58,.08)}
 .digital-recalculate:hover{background:#f2f7f3}
-.receipt-container{font-family:Arial,Helvetica,sans-serif;border:1px solid #e1e9e3;border-top:6px solid #174c3a;border-radius:16px;padding:22px;box-shadow:0 12px 30px rgba(20,55,35,.09);overflow:hidden}
-.receipt-header{border-bottom:1px solid #dce7df;padding:8px 0 18px;margin-bottom:16px}
+.digital-detail-result{display:none;align-items:center;justify-content:center;width:auto;min-width:220px;min-height:48px;margin:7px auto 12px;padding:13px 24px;background:#174c3a;color:#fff;border:0;border-radius:12px;font-size:13px;font-weight:800;letter-spacing:.25px;box-shadow:0 5px 14px rgba(23,76,58,.14);cursor:pointer}
+.digital-detail-result:hover{background:#236b4d}
+.receipt-container{font-family:Arial,Helvetica,sans-serif;border:1px solid #dce7df;border-top:4px solid #174c3a;border-radius:13px;padding:16px 18px;box-shadow:0 7px 18px rgba(20,55,35,.06);overflow:hidden;background:#fff}
+.receipt-header{border-bottom:1px solid #dce7df;padding:4px 0 11px;margin-bottom:11px}
 .receipt-header>div:first-child{font-size:15px!important;letter-spacing:1px}
-.receipt-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;align-items:start;margin:0;padding:11px 2px;border-bottom:1px solid #edf1ee;font-size:13px;line-height:1.4}
+.receipt-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;align-items:start;margin:0;padding:7px 2px;border-bottom:1px solid #edf1ee;font-size:12px;line-height:1.3}
 .receipt-row span:first-child{min-width:0;padding-right:0;overflow-wrap:anywhere;word-break:normal;color:#34443a}
+.receipt-item-number{display:inline-block;min-width:19px;color:#174c3a;font-weight:800;font-variant-numeric:tabular-nums}
 .receipt-row span:last-child{white-space:nowrap;text-align:right;color:#174c3a;font-variant-numeric:tabular-nums}
 .receipt-row.aidat-row span{color:#b54747}
-.receipt-total{margin-top:14px;padding:15px 12px;background:#edf5ef;border:1px solid #dce9df;border-radius:12px;font-size:15px;color:#174c3a}
+.receipt-total{margin-top:10px;padding:11px 10px;background:#edf5ef;border:1px solid #dce9df;border-radius:10px;font-size:14px;color:#174c3a}
 .receipt-total span:first-child{font-weight:800}
 .receipt-total span:last-child{font-weight:900}
-.receipt-footer{border-top:1px solid #e3ebe5;color:#7b887f;font-size:10px;line-height:1.5;margin-top:16px;padding-top:14px}
+.receipt-footer{border-top:1px solid #e3ebe5;color:#7b887f;font-size:9px;line-height:1.4;margin-top:10px;padding-top:9px}
 @media(max-width:600px){
  .net-tutar-card{padding:28px 12px!important;border-radius:26px;margin-top:20px}
  .net-tutar-title{font-size:12px;letter-spacing:1.2px;margin-bottom:9px}
  .net-tutar-rakam{font-size:clamp(21px,6.2vw,28px)!important;line-height:1.2;letter-spacing:-.8px;gap:5px;flex-wrap:nowrap;white-space:nowrap}
- .digital-recalculate{width:100%;max-width:100%;min-height:48px;margin:12px 0 4px}
- .receipt-container{padding:14px 11px;border-radius:13px;margin-top:14px}
- .receipt-header{padding:5px 0 14px}
+ .digital-recalculate,.digital-detail-result{width:100%;max-width:100%;min-width:0;min-height:46px;margin:7px 0 4px;padding:12px 14px;font-size:12px}
+ .receipt-container{padding:11px 10px;border-radius:12px;margin-top:10px}
+ .receipt-header{padding:4px 0 10px}
  .receipt-header>div:first-child{font-size:13px!important}
- .receipt-row{grid-template-columns:minmax(0,1fr) auto;gap:7px;padding:10px 1px;font-size:11.5px;line-height:1.35}
- .receipt-row span:first-child{font-size:11.5px;overflow-wrap:anywhere}
- .receipt-row span:last-child{font-size:11px;white-space:nowrap}
- .receipt-total{font-size:12px;padding:12px 8px;gap:6px}
- .receipt-total span:last-child{font-size:12px}
+ .receipt-row{grid-template-columns:minmax(0,1fr) auto;gap:7px;padding:7px 1px;font-size:11px;line-height:1.3}
+ .receipt-row span:first-child{font-size:11px;overflow-wrap:anywhere}
+ .receipt-row span:last-child{font-size:10.5px;white-space:nowrap}
+ .receipt-total{font-size:11px;padding:10px 8px;gap:6px}
+ .receipt-total span:last-child{font-size:11px}
  .receipt-footer{font-size:9px}
 }
 @media(max-width:600px){
@@ -560,9 +563,9 @@ body:has(.login-shell){padding:0;background:linear-gradient(145deg,#e8f0eb 0%,#f
 }
 
 /* Sosyal medya bağlantılarıyla aynı hizada kompakt görüş bildir butonu */
-.feedback-button{display:inline-flex;align-items:center;justify-content:center;gap:6px;flex:0 0 auto;min-height:29px;margin:0;padding:5px 9px;border:1px solid #d5e4d9;border-radius:9px;background:#174c3a;color:#fff;text-decoration:none;font-size:9px;font-weight:800;white-space:nowrap;box-shadow:none;cursor:pointer;line-height:1}
+.feedback-button{display:inline-flex;align-items:center;justify-content:center;gap:4px;flex:0 0 auto;min-height:24px;margin:0;padding:3px 5px;border:1px solid #d5e4d9;border-radius:7px;background:#174c3a;color:#fff;text-decoration:none;font-size:7px;font-weight:800;white-space:nowrap;box-shadow:none;cursor:pointer;line-height:1}
 .feedback-button:hover{background:#236b4d}
-.header-container{display:flex;align-items:center;justify-content:flex-start;gap:9px;margin-bottom:12px!important}
+.header-container{display:flex;align-items:center;justify-content:space-between;gap:9px;margin-bottom:12px!important}
 .header-container .digital-social{flex:0 0 auto;margin:0!important;min-height:0;width:auto!important;justify-content:flex-start!important}
 .header-container .digital-social .social-icons{align-items:center}
 @media(max-width:600px){
@@ -570,13 +573,13 @@ body:has(.login-shell){padding:0;background:linear-gradient(145deg,#e8f0eb 0%,#f
  .header-container .digital-social{width:auto!important;padding:0!important;justify-content:flex-start!important}
  .header-container .digital-social .social-icons{margin:0!important;gap:5px!important}
  .header-container .digital-social .social-icons a{width:25px!important;height:25px!important}
- .feedback-button{min-height:25px;padding:5px 8px;font-size:8px;gap:4px}
+ .feedback-button{min-height:22px;padding:3px 5px;font-size:6.5px;gap:3px}
 }
 @media(max-width:360px){
  .header-container{gap:5px}
  .header-container .digital-social .social-icons{gap:4px!important}
  .header-container .digital-social .social-icons a{width:23px!important;height:23px!important}
- .feedback-button{font-size:7px;padding:4px 6px}
+ .feedback-button{font-size:6px;padding:3px 4px;min-height:21px}
 }
 
 </style>
@@ -1018,6 +1021,8 @@ if(donemText.includes("14 Mayıs")) {
   sonucKarti.style.display = "block";
   const yenidenBtn=document.getElementById("yenidenHesaplaBtn");
   if(yenidenBtn) yenidenBtn.style.display="inline-flex";
+  const detayBtn=document.getElementById("detayliBordroBtn");
+  if(detayBtn) detayBtn.style.display="inline-flex";
   window.detayData = detay;
   window.hesaplananKadro = document.getElementById("kadro").value;
   window.hesaplananDonem = donemText;
@@ -1029,7 +1034,7 @@ if(donemText.includes("14 Mayıs")) {
 function tabloCiz(){
   let html = `<div class="receipt-container">
     <div class="receipt-header">
-<div style="font-weight: 900; font-size: 14px; color: #1f7a4f; margin-bottom: 8px;">GSB MAAŞ BORDRO FİŞİ</div>
+<div style="font-weight: 900; font-size: 14px; color: #1f7a4f; margin-bottom: 8px;">GSB MAAŞ DETAYLI RAKAMLAR</div>
 <div style="font-size: 14px; font-weight: 800; color: #333; text-transform: uppercase;">${window.hesaplananKadro}</div>
 <div style="font-size: 13px; font-weight: 600; color: #666; margin-top: 3px;">Dönem: ${window.hesaplananDonem}</div>
     </div>
@@ -1037,12 +1042,13 @@ function tabloCiz(){
     <div style="display: flex; justify-content: space-between; font-size: 12px; font-weight: 900; margin-bottom: 5px; color: #1f7a4f; border-bottom: 1px solid #eee; padding-bottom: 3px;">
         <span>ÖDEME KALEMLERİ</span>
         <span>NET ÜCRETLER</span>
-    </div>`;  window.detayData.forEach(d => {
+    </div>`;  let odemeKalemNo=0;
+  window.detayData.forEach(d => {
     let rowClass = d.isAidat ? 'class="receipt-row aidat-row"' : 'class="receipt-row"';
     let noteStyle = d.note.includes("Tediye Mahsubu") ? 'class="tediye-notu"' : 'class="aidat-note"';
-
+    let kalemNo = d.isAidat ? "" : (++odemeKalemNo) + ". ";
     html += `<div ${rowClass}>
-        <span>${d.label} ${d.note ? '<br><small '+noteStyle+'>'+d.note+'</small>' : ''}</span>
+        <span><b class="receipt-item-number">${kalemNo}</b>${d.label} ${d.note ? '<br><small '+noteStyle+'>'+d.note+'</small>' : ''}</span>
         <span>${d.tutar.toLocaleString('tr-TR', {minimumFractionDigits: 2, maximumFractionDigits: 2})} TL</span>
     </div>`;
   });
@@ -1077,6 +1083,14 @@ function yenidenHesapla(){
   if(sonucKarti) sonucKarti.style.display="none";
   if(detay) detay.style.display="none";
   if(yenidenBtn) yenidenBtn.style.display="none";
+  const detayBtn=document.getElementById("detayliBordroBtn");
+  if(detayBtn) detayBtn.style.display="none";
+  const kadroSelect=document.getElementById("kadro");
+  const donemSelect=document.getElementById("donem");
+  if(kadroSelect){kadroSelect.selectedIndex=0;kadroSelect.classList.remove("field-selected");}
+  if(donemSelect){donemSelect.selectedIndex=0;donemSelect.classList.remove("field-selected");}
+  const gunInput=document.getElementById("gun");
+  if(gunInput) gunInput.value="";
   if(root && typeof root._goToStep==="function") root._goToStep(0);
   else window.scrollTo({top:0,behavior:"smooth"});
 }
@@ -1120,9 +1134,13 @@ function yenidenHesapla(){
     detailButton.type="button";
     detailButton.setAttribute("onclick","detayGoster()");
    }
-   detailButton.className="digital-detail-button";
-   detailButton.textContent="Detaylı Bordroyu Görüntüle";
-   action.appendChild(detailButton);
+   detailButton.id="detayliBordroBtn";
+   detailButton.className="digital-detail-button digital-detail-result";
+   detailButton.textContent="DETAYLI RAKAMLARI GÖRÜNTÜLE";
+   detailButton.style.display="none";
+   const recalcButton=document.getElementById("yenidenHesaplaBtn");
+   if(recalcButton) recalcButton.insertAdjacentElement("afterend",detailButton);
+   else root.appendChild(detailButton);
   }
   const wizard=document.createElement("div");
   wizard.className="salary-wizard";
