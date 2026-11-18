@@ -565,6 +565,41 @@ body:has(.login-shell){padding:0;background:linear-gradient(145deg,#e8f0eb 0%,#f
 .feedback-button:hover{background:#236b4d}
 @media(max-width:600px){.feedback-card{display:flex;width:fit-content;max-width:100%;gap:7px;margin:0 0 9px;padding:6px 8px}.feedback-copy{gap:6px}.feedback-icon{width:25px;height:25px;flex-basis:25px;font-size:12px}.feedback-copy strong{font-size:10px}.feedback-button{min-height:29px;padding:6px 8px;font-size:9px;gap:4px}}
 
+
+/* Mobil üst aksiyonlar: sosyal medya ve görüş bildir aynı satırda */
+.header-container{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:12px!important}
+.header-container .digital-social{flex:0 0 auto;margin:0!important;min-height:0;width:auto!important}
+.header-container .feedback-card{flex:0 1 auto;margin:0!important;min-width:0}
+.header-container .feedback-copy{gap:5px}
+@media(max-width:600px){
+ .header-container{gap:8px;margin-bottom:9px!important}
+ .header-container .digital-social{width:auto!important;padding:0!important;justify-content:flex-start!important}
+ .header-container .digital-social .social-icons{margin:0!important;gap:5px!important}
+ .header-container .digital-social .social-icons a{width:25px!important;height:25px!important}
+ .header-container .feedback-card{gap:5px;padding:5px 7px;min-height:25px}
+ .header-container .feedback-icon{width:22px;height:22px;flex-basis:22px;font-size:11px}
+ .header-container .feedback-copy{gap:5px}
+ .header-container .feedback-copy strong{font-size:9px}
+ .header-container .feedback-button{min-height:25px;padding:5px 7px;font-size:8px;gap:3px}
+ .wizard-progress{padding:8px 10px;margin:0 0 8px;border-radius:10px;gap:7px}
+ .wizard-progress-copy{gap:3px}
+ .wizard-progress-copy strong{font-size:9px;letter-spacing:-.15px;line-height:1.15}
+ .wizard-progress-copy span{font-size:9px}
+ .wizard-progress-count{font-size:9px}
+ .wizard-prev{padding:5px 8px!important;font-size:9px!important;margin-bottom:2px!important}
+ .wizard-track{gap:4px;margin-bottom:10px}
+ .wizard-track span{height:4px}
+}
+@media(max-width:360px){
+ .header-container{gap:5px}
+ .header-container .feedback-card{gap:4px;padding:4px 5px}
+ .header-container .feedback-copy strong{font-size:8px}
+ .header-container .feedback-button{font-size:7px;padding:4px 5px}
+ .header-container .digital-social .social-icons{gap:4px!important}
+ .header-container .digital-social .social-icons a{width:23px!important;height:23px!important}
+ .wizard-progress-copy strong{font-size:8px}
+}
+
 </style>
             </div>
     </div>
@@ -601,9 +636,7 @@ body:has(.login-shell){padding:0;background:linear-gradient(145deg,#e8f0eb 0%,#f
         <a href="https://x.com/BatuhanOzkann" target="_blank" rel="noopener" class="twi" aria-label="X"><i class="fab fa-x-twitter"></i></a>
       </div>
   </div>
-</div>
-
-<section class="feedback-card" aria-label="Görüş ve öneriler">
+  <section class="feedback-card" aria-label="Görüş ve öneriler">
   <div class="feedback-copy">
     <div class="feedback-icon" aria-hidden="true"><i class="fas fa-comment-dots"></i></div>
     <div>
@@ -614,7 +647,8 @@ body:has(.login-shell){padding:0;background:linear-gradient(145deg,#e8f0eb 0%,#f
   <a class="feedback-button" href="#" onclick="event.preventDefault(); alert('Google Form bağlantısı eklendiğinde bu buton üzerinden görüş ve önerilerinizi iletebileceksiniz.');">
     Görüş ve Öneri Bildir <i class="fas fa-arrow-right"></i>
   </a>
-</section>
+  </section>
+</div>
 
 <div class="box">
   <div class="section-title">1. BÖLÜM: TEMEL BİLGİLER</div>
