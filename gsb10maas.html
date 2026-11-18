@@ -555,15 +555,15 @@ body:has(.login-shell){padding:0;background:linear-gradient(145deg,#e8f0eb 0%,#f
  #yemekToggle.compact-meal-toggle{padding:7px 10px!important;font-size:10px!important}
 }
 
-/* Görüş ve öneri kartı */
-.feedback-card{display:flex;align-items:center;justify-content:space-between;gap:18px;max-width:1040px;margin:0 auto 16px;padding:15px 18px;border:1px solid #d8e7dc;border-left:4px solid #287454;border-radius:14px;background:linear-gradient(110deg,#f5faf6 0%,#fff 100%);box-shadow:0 5px 16px rgba(23,76,58,.045)}
-.feedback-copy{display:flex;align-items:center;gap:12px;min-width:0}
-.feedback-icon{display:grid;place-items:center;flex:0 0 40px;width:40px;height:40px;border-radius:12px;background:#e7f1e9;color:#1d6545;font-size:17px}
-.feedback-copy strong{display:block;color:#174c3a;font-size:13px;font-weight:850}
-.feedback-copy p{margin:4px 0 0;color:#718078;font-size:11px;line-height:1.45}
-.feedback-button{display:inline-flex;align-items:center;justify-content:center;gap:8px;flex:0 0 auto;min-height:40px;padding:10px 15px;border:0;border-radius:10px;background:#174c3a;color:#fff;text-decoration:none;font-size:11px;font-weight:800;white-space:nowrap;box-shadow:0 4px 10px rgba(23,76,58,.13);cursor:pointer}
+/* Kompakt görüş ve öneri bağlantısı - sol üst */
+.feedback-card{display:inline-flex;align-items:center;justify-content:flex-start;gap:10px;width:auto;max-width:100%;margin:0 0 10px;padding:7px 10px;border:1px solid #dce9df;border-left:3px solid #287454;border-radius:10px;background:#f7faf8;box-shadow:none}
+.feedback-copy{display:flex;align-items:center;gap:8px;min-width:0}
+.feedback-icon{display:grid;place-items:center;flex:0 0 28px;width:28px;height:28px;border-radius:8px;background:#e7f1e9;color:#1d6545;font-size:13px}
+.feedback-copy strong{display:block;color:#174c3a;font-size:11px;font-weight:850;white-space:nowrap}
+.feedback-copy p{display:none}
+.feedback-button{display:inline-flex;align-items:center;justify-content:center;gap:6px;flex:0 0 auto;min-height:30px;padding:6px 10px;border:0;border-radius:8px;background:#174c3a;color:#fff;text-decoration:none;font-size:10px;font-weight:800;white-space:nowrap;box-shadow:none;cursor:pointer}
 .feedback-button:hover{background:#236b4d}
-@media(max-width:600px){.feedback-card{align-items:stretch;flex-direction:column;gap:12px;margin-bottom:12px;padding:13px}.feedback-copy{align-items:flex-start}.feedback-button{width:100%;min-height:42px}}
+@media(max-width:600px){.feedback-card{display:flex;width:fit-content;max-width:100%;gap:7px;margin:0 0 9px;padding:6px 8px}.feedback-copy{gap:6px}.feedback-icon{width:25px;height:25px;flex-basis:25px;font-size:12px}.feedback-copy strong{font-size:10px}.feedback-button{min-height:29px;padding:6px 8px;font-size:9px;gap:4px}}
 
 </style>
             </div>
