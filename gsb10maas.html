@@ -554,6 +554,17 @@ body:has(.login-shell){padding:0;background:linear-gradient(145deg,#e8f0eb 0%,#f
  .fiili-help{font-size:8px;letter-spacing:-.12px;white-space:nowrap}
  #yemekToggle.compact-meal-toggle{padding:7px 10px!important;font-size:10px!important}
 }
+
+/* Görüş ve öneri kartı */
+.feedback-card{display:flex;align-items:center;justify-content:space-between;gap:18px;max-width:1040px;margin:0 auto 16px;padding:15px 18px;border:1px solid #d8e7dc;border-left:4px solid #287454;border-radius:14px;background:linear-gradient(110deg,#f5faf6 0%,#fff 100%);box-shadow:0 5px 16px rgba(23,76,58,.045)}
+.feedback-copy{display:flex;align-items:center;gap:12px;min-width:0}
+.feedback-icon{display:grid;place-items:center;flex:0 0 40px;width:40px;height:40px;border-radius:12px;background:#e7f1e9;color:#1d6545;font-size:17px}
+.feedback-copy strong{display:block;color:#174c3a;font-size:13px;font-weight:850}
+.feedback-copy p{margin:4px 0 0;color:#718078;font-size:11px;line-height:1.45}
+.feedback-button{display:inline-flex;align-items:center;justify-content:center;gap:8px;flex:0 0 auto;min-height:40px;padding:10px 15px;border:0;border-radius:10px;background:#174c3a;color:#fff;text-decoration:none;font-size:11px;font-weight:800;white-space:nowrap;box-shadow:0 4px 10px rgba(23,76,58,.13);cursor:pointer}
+.feedback-button:hover{background:#236b4d}
+@media(max-width:600px){.feedback-card{align-items:stretch;flex-direction:column;gap:12px;margin-bottom:12px;padding:13px}.feedback-copy{align-items:flex-start}.feedback-button{width:100%;min-height:42px}}
+
 </style>
             </div>
     </div>
@@ -591,6 +602,19 @@ body:has(.login-shell){padding:0;background:linear-gradient(145deg,#e8f0eb 0%,#f
       </div>
   </div>
 </div>
+
+<section class="feedback-card" aria-label="Görüş ve öneriler">
+  <div class="feedback-copy">
+    <div class="feedback-icon" aria-hidden="true"><i class="fas fa-comment-dots"></i></div>
+    <div>
+      <strong>Görüş ve Önerileriniz</strong>
+      <p>Programımızı geliştirmemize katkı sağlayın. Görüş ve önerilerinizi bizimle paylaşın.</p>
+    </div>
+  </div>
+  <a class="feedback-button" href="#" onclick="event.preventDefault(); alert('Google Form bağlantısı eklendiğinde bu buton üzerinden görüş ve önerilerinizi iletebileceksiniz.');">
+    Görüş ve Öneri Bildir <i class="fas fa-arrow-right"></i>
+  </a>
+</section>
 
 <div class="box">
   <div class="section-title">1. BÖLÜM: TEMEL BİLGİLER</div>
