@@ -616,6 +616,24 @@ body:has(.login-shell){padding:0;background:linear-gradient(145deg,#e8f0eb 0%,#f
   }
 }
 
+
+/* Tediye bağlantısı sosyal medya ve görüş bildir butonları arasında */
+.header-container .tediye-header-link{display:inline-flex;align-items:center;justify-content:center;flex:0 1 auto;min-width:0;min-height:29px;margin:0;padding:5px 9px;border:1px solid #d5e4d9;border-radius:9px;background:#174c3a;color:#fff;font-size:9px;font-weight:800;letter-spacing:0;text-align:center;line-height:1.15;white-space:nowrap;text-decoration:none;box-shadow:none}
+.header-container .tediye-header-link:hover{background:#236b4d;transform:translateY(-1px)}
+.header-container .digital-social{margin:0!important;flex:0 0 auto}
+.header-container .feedback-button{min-height:29px;padding:5px 9px;font-size:9px;border-radius:9px}
+@media(max-width:600px){
+ .header-container{gap:6px}
+ .header-container .tediye-header-link{min-height:27px;padding:4px 6px;font-size:8px;white-space:normal;flex:1 1 auto}
+ .header-container .feedback-button{min-height:27px;padding:4px 6px;font-size:8px;white-space:nowrap}
+}
+@media(max-width:380px){
+ .header-container{gap:4px}
+ .header-container .tediye-header-link{font-size:7px;padding:4px 4px}
+ .header-container .feedback-button{font-size:7px;padding:4px 4px}
+ .header-container .digital-social .social-icons{gap:3px!important}
+ .header-container .digital-social .social-icons a{width:23px!important;height:23px!important}
+}
 </style>
             </div>
     </div>
@@ -640,9 +658,9 @@ body:has(.login-shell){padding:0;background:linear-gradient(145deg,#e8f0eb 0%,#f
       <div class="digital-brand">
         <div class="digital-brand-name">KOOP-İŞ <span>DİJİTAL</span></div>
         <div class="digital-brand-subtitle">GSB MAAŞ VE TEDİYE HESAPLAMA SİSTEMİ</div>
-        <a class="tediye-header-link" href="gsb10tediye.html">18 ARALIK TEDİYE HESAPLAMA <span>→</span></a>
+        
       </div>
-      <div class="digital-header-meta"><span>10 NOLU İŞKOLU</span><span class="version-badge">v2.0 · 17 Kasım 2026</span></div>
+      <div class="digital-header-meta"><span>10 NOLU İŞKOLU</span><span class="version-badge">v2.1 · 21 Kasım 2026</span></div>
     </div>
     <div class="header-container">
   <div class="social-bar-wrapper digital-social">
@@ -652,6 +670,7 @@ body:has(.login-shell){padding:0;background:linear-gradient(145deg,#e8f0eb 0%,#f
         <a href="https://x.com/BatuhanOzkann" target="_blank" rel="noopener" class="twi" aria-label="X"><i class="fab fa-x-twitter"></i></a>
       </div>
   </div>
+  <a class="tediye-header-link" href="gsb10tediye.html">18 Aralık 2026 Tediye Hesaplama</a>
   <a class="feedback-button" href="https://forms.gle/v7sPB94CDKP4Ciwa6" target="_blank" rel="noopener noreferrer" aria-label="Görüş ve Öneri Bildir">
     <i class="fas fa-comment-dots" aria-hidden="true"></i> Görüş ve Öneri Bildir
   </a>
