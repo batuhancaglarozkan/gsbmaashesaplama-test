@@ -582,6 +582,40 @@ body:has(.login-shell){padding:0;background:linear-gradient(145deg,#e8f0eb 0%,#f
  .feedback-button{font-size:6px;padding:3px 4px;min-height:21px}
 }
 
+
+/* KOOP-İŞ logosu yalnızca detaylı bordroda filigran olarak görünür. */
+#sonuc .receipt-container{
+  isolation:isolate;
+  overflow:hidden;
+}
+#sonuc .receipt-container::before{
+  content:"";
+  position:absolute;
+  z-index:0;
+  left:50%;
+  top:50%;
+  width:min(82%, 620px);
+  height:82%;
+  transform:translate(-50%,-50%);
+  background-image:url("https://i.ibb.co/7t7zNQq2/koop-i-gri-arka-planl-logo.png");
+  background-repeat:no-repeat;
+  background-position:center;
+  background-size:contain;
+  opacity:.075;
+  pointer-events:none;
+}
+#sonuc .receipt-container > *{
+  position:relative;
+  z-index:1;
+}
+@media(max-width:600px){
+  #sonuc .receipt-container::before{
+    width:92%;
+    height:84%;
+    opacity:.07;
+  }
+}
+
 </style>
             </div>
     </div>
